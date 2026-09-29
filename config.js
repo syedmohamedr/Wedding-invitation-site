@@ -65,9 +65,10 @@ const WEDDING_CONFIG = {
 
   // Audio / Background Music
   audio: {
-    // If you have a custom mp3 file, put it inside assets/audio/ and specify filename here, e.g., "assets/audio/wedding_music.mp3"
-    // When left empty "", our custom built-in romantic wedding instrumental acoustic harp & ambient synthesizer plays flawlessly with 0 load delays!
-    customAudioSrc: "",
+    // Wedding Nasheed by Muhammad Al Muqit (https://youtu.be/ivrumxRUz_Y)
+    customAudioSrc: "assets/audio/wedding_nasheed.mp3",
+    youtubeUrl: "https://youtu.be/ivrumxRUz_Y",
+    title: "Wedding Nasheed - Muhammad Al Muqit",
     soundEnabledDefault: true
   }
 };

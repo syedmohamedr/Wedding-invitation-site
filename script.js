@@ -149,9 +149,22 @@
   function initAudioEngine() {
     const customSrc = WEDDING_CONFIG.audio && WEDDING_CONFIG.audio.customAudioSrc;
     if (customSrc && customSrc.trim() !== '') {
-      customAudioElement = new Audio(customSrc);
+      customAudioElement = new Audio();
       customAudioElement.loop = true;
-      customAudioElement.volume = 0.65;
+      customAudioElement.volume = 0.75;
+      customAudioElement.preload = 'auto';
+
+      // Support multi-format sources (.mp3 & .m4a)
+      const sourceMp3 = document.createElement('source');
+      sourceMp3.src = customSrc;
+      sourceMp3.type = 'audio/mpeg';
+
+      const sourceM4a = document.createElement('source');
+      sourceM4a.src = 'assets/audio/wedding_nasheed.m4a';
+      sourceM4a.type = 'audio/mp4';
+
+      customAudioElement.appendChild(sourceMp3);
+      customAudioElement.appendChild(sourceM4a);
     }
   }
 
@@ -159,13 +172,16 @@
     if (isMusicPlaying) return;
 
     if (customAudioElement) {
-      customAudioElement.play().then(() => {
-        isMusicPlaying = true;
-        updateAudioButtonUI(true);
-      }).catch(err => {
-        console.log('Audio autoplay prevented, using Web Audio synthesizer');
-        startProceduralHarpSynth();
-      });
+      const playPromise = customAudioElement.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isMusicPlaying = true;
+          updateAudioButtonUI(true);
+        }).catch(err => {
+          console.warn('Custom audio playback postponed until user interaction:', err);
+          startProceduralHarpSynth();
+        });
+      }
       return;
     }
 
