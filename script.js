@@ -1,7 +1,7 @@
 /**
  * ===================================================================
  * LUXURY WEDDING INVITATION — JAVASCRIPT ENGINE
- * Mobile-First, Cinematic Transitions, Scratch Reveal & Audio
+ * 3D Envelope Unfolding Animation, Parallax Tilt & Classic Rich FX
  * ===================================================================
  */
 
@@ -19,9 +19,12 @@
   // DOM Elements
   const body = document.body;
   const coverHero = document.getElementById('coverHero');
+  const envelopeSceneWrapper = document.getElementById('envelopeSceneWrapper');
+  const envelopeContainer = document.getElementById('envelopeContainer');
+  const waxSealBtn = document.getElementById('waxSealBtn');
   const openInvitationBtn = document.getElementById('openInvitationBtn');
+  const mainTiltCard = document.getElementById('mainTiltCard');
   const audioToggleBtn = document.getElementById('audioToggleBtn');
-  const invitationContent = document.getElementById('invitationContent');
   const scratchCanvas = document.getElementById('scratchCanvas');
   const scratchInstruction = document.getElementById('scratchInstruction');
   const stardustCanvas = document.getElementById('stardustCanvas');
@@ -36,50 +39,60 @@
   function applyWeddingConfig() {
     if (typeof WEDDING_CONFIG === 'undefined') return;
 
-    const { groom, bride, dateFormatted, dateNumeric, dayOfWeek, timeFormatted, venue, texts, contact } = WEDDING_CONFIG;
+    const { groom, bride, eventTitle, dateFormatted, dateNumeric, dayOfWeek, timeFormatted, timeNote, venue, texts, contact } = WEDDING_CONFIG;
 
-    // Cover Screen
+    // Cover Screen & 3D Envelope
     safeSetText('coverBismillah', texts.bismillahEnglish);
-    safeSetText('heroGroomName', groom.name);
-    safeSetText('heroBrideName', bride.name);
-    safeSetText('heroDateNumeric', dateNumeric);
+    safeSetText('peekEventTitle', eventTitle || 'WEDDING INVITATION');
 
-    // Panel 1: Blessing & Gratitude
-    safeSetText('textOpeningGratitude', `“${texts.openingGratitude.replace(/^“|”$/g, '')}”`);
-    safeSetText('textSaveTheDate', texts.saveTheDate);
+    // Pinterest Main Card
+    safeSetText('textBlessingHeader', texts.blessingHeader);
+    safeSetText('mainEventTitle', eventTitle || 'WEDDING INVITATION');
+    safeSetText('mainGroomName', groom.shortName || groom.name);
+    safeSetText('mainBrideName', bride.shortName || bride.name);
+    safeSetText('textHolyVerse', texts.holyVerse);
+    safeSetText('textHolyVerseSource', texts.holyVerseSource);
 
-    // Panel 2: Couple Section
-    safeSetText('textTogetherFamilies', texts.togetherFamilies);
-    safeSetText('sectionGroomName', groom.name);
-    safeSetText('sectionBrideName', bride.name);
-    safeSetText('textRequestHonour', texts.requestHonour);
+    // Auspicious Details
+    safeSetText('detailDateFormatted', `${dayOfWeek}, ${dateFormatted}`);
+    safeSetText('detailDayOfWeek', dayOfWeek);
+    safeSetText('detailTimeFormatted', timeFormatted);
+    safeSetText('detailTimeNote', timeNote || '(Sharp)');
+    safeSetText('detailVenueName', venue.name);
+    safeSetText('detailVenueCity', `${venue.city}, ${venue.district || ''}`);
 
-    // Panel 3: Scratch Section
-    safeSetText('revealedDateText', dateFormatted);
+    // Dua Seal & Messages
+    safeSetText('textDuaArabic', texts.duaArabic);
+    safeSetText('textDuaEnglish', texts.duaText);
+    safeSetText('textPresenceNote', texts.presenceNote);
+    safeSetText('textClosingPoem', texts.closingPoem);
+
+    // Scratch Section
+    safeSetText('revealedDateText', dateFormatted.toUpperCase());
     safeSetText('revealedTimeText', `${dayOfWeek.toUpperCase()} • ${timeFormatted}`);
     safeSetText('revealedVenueText', `${venue.name}, ${venue.city}`);
-    safeSetText('scratchSuccessMsg', `✨ ${texts.scratchSuccess} ✨`);
+    safeSetText('scratchSuccessMsg', `✨ ${texts.scratchSuccess || 'WE CANNOT WAIT TO CELEBRATE WITH YOU!'} ✨`);
 
-    // Panel 4: Countdown
+    // Countdown Section
     safeSetText('textCountdownHeading', texts.countdownHeading);
+    safeSetText('textHolyQuoteAlt', texts.holyQuoteAlt);
+    safeSetText('textHolyQuoteAltSource', texts.holyQuoteAltSource);
 
-    // Panel 5: Event Date & Holy Verse
-    safeSetText('eventDateBig', dateFormatted);
-    safeSetText('eventDayTime', `${dayOfWeek} • ${timeFormatted}`);
-    safeSetText('textHolyQuote', texts.holyQuote);
-    safeSetText('textHolyQuoteSource', texts.holyQuoteSource);
-
-    // Panel 6: Venue & Location
+    // Venue & Location
     safeSetText('venueNameText', venue.name);
     safeSetText('venueCityText', `${venue.city}, ${venue.district || ''}`);
+    safeSetText('venueCardTitle', venue.name);
+    safeSetText('venueFullAddress', venue.fullAddress || `${venue.name}, ${venue.city}`);
+
     const mapLinkBtn = document.getElementById('btnMapDirections');
     if (mapLinkBtn && venue.mapLink) {
       mapLinkBtn.href = venue.mapLink;
     }
 
-    // Panel 7: Will You Join & RSVP
+    // RSVP & Share
     safeSetText('textWillYouJoin', texts.willYouJoin);
     safeSetText('textWillYouJoinSub', texts.willYouJoinSub);
+
     const rsvpBtn = document.getElementById('btnWhatsAppRsvp');
     if (rsvpBtn && contact.whatsappNumber) {
       const cleanPhone = contact.whatsappNumber.replace(/[^0-9]/g, '');
@@ -87,11 +100,8 @@
       rsvpBtn.href = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
     }
 
-    // Panel 8: Footer
-    safeSetText('poemLine1', texts.closingPoemLine1);
-    safeSetText('poemLine2', texts.closingPoemLine2);
-    safeSetText('poemLine3', texts.closingPoemLine3);
-    safeSetText('footerCoupleName', `${groom.name} & ${bride.name}`);
+    // Footer
+    safeSetText('footerCoupleName', `${groom.name.toUpperCase()} & ${bride.name.toUpperCase()}`);
     safeSetText('footerDateNumeric', dateNumeric);
     safeSetText('textClosingGratitude', texts.closingGratitude);
     safeSetText('footerVenueTag', `${venue.name.toUpperCase()} • ${venue.city.toUpperCase()}`);
@@ -144,17 +154,16 @@
   }
 
   // =================================================================
-  // 3. CINEMATIC AUDIO ENGINE (Procedural Wedding Melody + MP3 support)
+  // 3. CINEMATIC AUDIO ENGINE (MP3 + Procedural Harp Synth Fallback)
   // =================================================================
   function initAudioEngine() {
     const customSrc = WEDDING_CONFIG.audio && WEDDING_CONFIG.audio.customAudioSrc;
     if (customSrc && customSrc.trim() !== '') {
       customAudioElement = new Audio();
       customAudioElement.loop = true;
-      customAudioElement.volume = 0.75;
+      customAudioElement.volume = 0.7;
       customAudioElement.preload = 'auto';
 
-      // Support multi-format sources (.mp3 & .m4a)
       const sourceMp3 = document.createElement('source');
       sourceMp3.src = customSrc;
       sourceMp3.type = 'audio/mpeg';
@@ -178,7 +187,7 @@
           isMusicPlaying = true;
           updateAudioButtonUI(true);
         }).catch(err => {
-          console.warn('Custom audio playback postponed until user interaction:', err);
+          console.warn('Audio autoplay requires gesture:', err);
           startProceduralHarpSynth();
         });
       }
@@ -209,22 +218,20 @@
   }
 
   function updateAudioButtonUI(playing) {
-    if (playing) {
-      audioToggleBtn.classList.add('playing');
-    } else {
-      audioToggleBtn.classList.remove('playing');
+    if (audioToggleBtn) {
+      if (playing) {
+        audioToggleBtn.classList.add('playing');
+      } else {
+        audioToggleBtn.classList.remove('playing');
+      }
     }
   }
 
-  /**
-   * High-end procedural romantic wedding harp & piano melody
-   * Synthesizes emotional arpeggiated chords in D Major with soft reverb & chime overtones
-   */
   function startProceduralHarpSynth() {
     try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
       if (!audioContext) {
-        audioContext = new AudioContext();
+        audioContext = new AudioCtx();
       }
       if (audioContext.state === 'suspended') {
         audioContext.resume();
@@ -233,12 +240,11 @@
       isMusicPlaying = true;
       updateAudioButtonUI(true);
 
-      // Emotional chord sequence in D Major (D -> F#m -> G -> A)
       const chordNotes = [
-        [293.66, 369.99, 440.00, 587.33], // D maj (D4, F#4, A4, D5)
-        [246.94, 293.66, 369.99, 493.88], // Bm / F#m flavor (B3, D4, F#4, B4)
-        [196.00, 246.94, 293.66, 392.00], // G maj (G3, B3, D4, G4)
-        [220.00, 277.18, 329.63, 440.00]  // A maj (A3, C#4, E4, A4)
+        [293.66, 369.99, 440.00, 587.33], // D Maj
+        [246.94, 293.66, 369.99, 493.88], // Bm / F#m
+        [196.00, 246.94, 293.66, 392.00], // G Maj
+        [220.00, 277.18, 329.63, 440.00]  // A Maj
       ];
 
       let chordIndex = 0;
@@ -249,7 +255,7 @@
         const gain = audioContext.createGain();
         const filter = audioContext.createBiquadFilter();
 
-        osc.type = 'triangle'; // Warm acoustic tone
+        osc.type = 'triangle';
         osc.frequency.setValueAtTime(freq, audioContext.currentTime + delaySec);
 
         filter.type = 'lowpass';
@@ -268,7 +274,6 @@
         osc.stop(now + 2.5);
       }
 
-      // Play soft arpeggios continuously
       proceduralMusicInterval = setInterval(() => {
         if (!isMusicPlaying) return;
         const currentChord = chordNotes[chordIndex];
@@ -282,56 +287,135 @@
       }, 480);
 
     } catch (e) {
-      console.warn('Web Audio error:', e);
+      console.warn('Web Audio warning:', e);
     }
   }
 
   // =================================================================
-  // 4. OPEN INVITATION TRANSITION
+  // 4. 3D ENVELOPE OPENING & CARD UNFOLDING ANIMATION
   // =================================================================
-  function openInvitation() {
-    if (isInvitationOpened) return;
+  let transitionTimeout = null;
+
+  function finishOpeningTransition() {
+    if (transitionTimeout) {
+      clearTimeout(transitionTimeout);
+      transitionTimeout = null;
+    }
+
+    if (coverHero && !coverHero.classList.contains('opened')) {
+      coverHero.classList.add('opened');
+      body.classList.remove('is-locked');
+
+      const firstSection = document.getElementById('pinterestCardSection');
+      if (firstSection) {
+        firstSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      setTimeout(playVideoAnimation, 300);
+    }
+  }
+
+  function openRoyalEnvelope() {
+    if (isInvitationOpened) {
+      finishOpeningTransition();
+      return;
+    }
     isInvitationOpened = true;
 
     // Start background music smoothly
     startMusic();
 
-    // Trigger visual opening effects
-    coverHero.classList.add('opened');
-    body.classList.remove('is-locked');
+    // 1. Immediately fade out top spiritual header & action button to clear space
+    if (envelopeSceneWrapper) {
+      envelopeSceneWrapper.classList.add('is-opening');
+    }
 
-    // Trigger a petal & confetti burst
-    burstPetals(window.innerWidth / 2, window.innerHeight * 0.4, 40);
+    if (envelopeContainer) {
+      envelopeContainer.classList.add('is-unsealing');
+      
+      // 2. Open Flap smoothly in 3D (130ms)
+      setTimeout(() => {
+        if (envelopeContainer) {
+          envelopeContainer.classList.add('is-flap-open');
+        }
+      }, 130);
 
-    // Smoothly scroll down to first invitation card
-    setTimeout(() => {
-      const firstSection = document.querySelector('.card-ivory');
-      if (firstSection) {
-        firstSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 600);
+      // 3. Slide Card Up Out of Envelope gracefully into clear space (360ms)
+      setTimeout(() => {
+        if (envelopeContainer) {
+          envelopeContainer.classList.add('is-card-sliding');
+        }
+      }, 360);
+    }
+
+    // 4. Silky Transition from Cover to Main Invitation Card (980ms)
+    transitionTimeout = setTimeout(() => {
+      finishOpeningTransition();
+    }, 980);
   }
 
   // =================================================================
-  // 5. SCRATCH-TO-REVEAL CANVAS LOGIC
+  // 5. INTERACTIVE 3D PARALLAX TILT EFFECT (CLASSIC RICH FEEL)
+  // =================================================================
+  function initParallaxTilt() {
+    if (!mainTiltCard) return;
+
+    let isHovering = false;
+
+    function handleMove(e) {
+      if (!isHovering) return;
+      const rect = mainTiltCard.getBoundingClientRect();
+      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : e.clientY;
+
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Gentle maximum 6 degree tilt for ultra-luxury feel
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+
+      mainTiltCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
+    }
+
+    function handleEnter() {
+      isHovering = true;
+      mainTiltCard.style.transition = 'transform 0.15s ease-out';
+    }
+
+    function handleLeave() {
+      isHovering = false;
+      mainTiltCard.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+      mainTiltCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    }
+
+    mainTiltCard.addEventListener('mouseenter', handleEnter);
+    mainTiltCard.addEventListener('mousemove', handleMove);
+    mainTiltCard.addEventListener('mouseleave', handleLeave);
+
+    mainTiltCard.addEventListener('touchstart', handleEnter, { passive: true });
+    mainTiltCard.addEventListener('touchmove', handleMove, { passive: true });
+    mainTiltCard.addEventListener('touchend', handleLeave);
+  }
+
+  // =================================================================
+  // 6. SCRATCH-TO-REVEAL CANVAS LOGIC
   // =================================================================
   function initScratchCard() {
     if (!scratchCanvas) return;
     const ctx = scratchCanvas.getContext('2d');
-    const width = 330;
-    const height = 220;
+    const width = 340;
+    const height = 230;
 
-    // Set canvas dimensions
     scratchCanvas.width = width;
     scratchCanvas.height = height;
 
-    // Draw luxury metallic gold foil cover
     drawScratchCover(ctx, width, height);
 
     let isDrawing = false;
     let lastPos = null;
-    let scratchedPixels = 0;
-    const totalPixels = width * height;
 
     function getPosition(e) {
       const rect = scratchCanvas.getBoundingClientRect();
@@ -365,7 +449,6 @@
         const imageData = ctx.getImageData(0, 0, width, height);
         const data = imageData.data;
         let transparentCount = 0;
-        // Sample every 16th pixel for high performance
         for (let i = 3; i < data.length; i += 16) {
           if (data[i] === 0) transparentCount++;
         }
@@ -383,22 +466,15 @@
       if (isCardScratched) return;
       isCardScratched = true;
 
-      // Smooth fade away of remaining canvas
       scratchCanvas.style.opacity = '0';
       scratchCanvas.style.pointerEvents = 'none';
 
-      // Update instruction text
       if (scratchInstruction) {
         scratchInstruction.innerHTML = '<span>✨ Auspicious Date Revealed! ✨</span>';
-        scratchInstruction.style.background = 'rgba(212, 175, 55, 0.35)';
+        scratchInstruction.classList.add('revealed');
       }
-
-      // Pop petals & confetti right from the card!
-      const rect = scratchCanvas.getBoundingClientRect();
-      burstPetals(rect.left + rect.width / 2, rect.top + rect.height / 2, 60);
     }
 
-    // Touch & Mouse Handlers
     function startScratching(e) {
       if (isCardScratched) return;
       isDrawing = true;
@@ -429,40 +505,41 @@
   }
 
   function drawScratchCover(ctx, w, h) {
-    // Rich Gold Foil Gradient
+    // Luxury Metallic Gold Foil Gradient
     const grad = ctx.createLinearGradient(0, 0, w, h);
-    grad.addColorStop(0, '#c79c3b');
+    grad.addColorStop(0, '#c5a059');
     grad.addColorStop(0.3, '#fbe39d');
     grad.addColorStop(0.5, '#deb452');
-    grad.addColorStop(0.8, '#ecd490');
+    grad.addColorStop(0.8, '#f5e4b2');
     grad.addColorStop(1, '#9b711e');
 
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
 
-    // Decorative hairline border
+    // Ornate gold border
     ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 1.5;
     ctx.strokeRect(10, 10, w - 20, h - 20);
 
-    // Diamond motif in corners
+    // Diamond motifs in corners
     ctx.fillStyle = '#ffffff';
     drawDiamond(ctx, 10, 10, 5);
     drawDiamond(ctx, w - 10, 10, 5);
     drawDiamond(ctx, 10, h - 10, 5);
     drawDiamond(ctx, w - 10, h - 10, 5);
 
-    // Cover Text
+    // Cover Text in Royal Burgundy
     ctx.textAlign = 'center';
-    ctx.fillStyle = '#1c2b22';
+    ctx.fillStyle = '#5c1322';
 
     ctx.font = 'bold 11px Montserrat, sans-serif';
-    ctx.fillText('✨ SPECIAL REVEAL ✨', w / 2, h / 2 - 28);
+    ctx.fillText('✨ AUSPICIOUS REVEAL ✨', w / 2, h / 2 - 28);
 
-    ctx.font = 'bold 20px "Cinzel", serif';
+    ctx.font = 'bold 21px "Cinzel", serif';
     ctx.fillText('SCRATCH HERE', w / 2, h / 2 + 4);
 
-    ctx.font = '12px "Cormorant Garamond", Georgia, serif';
+    ctx.font = '13px "Cormorant Garamond", Georgia, serif';
+    ctx.fillStyle = '#3d161d';
     ctx.fillText('Touch & scratch to reveal wedding date', w / 2, h / 2 + 28);
   }
 
@@ -477,7 +554,7 @@
   }
 
   // =================================================================
-  // 6. STARDUST & PETALS PARTICLES ENGINE
+  // 7. STARDUST & PETALS PARTICLES ENGINE (TUMBLING 3D ROSE PETALS)
   // =================================================================
   let stardustParticles = [];
   let petals = [];
@@ -496,7 +573,7 @@
     resize();
     window.addEventListener('resize', resize);
 
-    // Generate initial ambient stardust particles
+    // Generate ambient golden stardust particles
     const count = 35;
     for (let i = 0; i < count; i++) {
       stardustParticles.push({
@@ -510,7 +587,38 @@
       });
     }
 
+    // Seed continuous slow, tranquil drifting rose petals
+    setInterval(() => {
+      if (petals.length < 10) {
+        spawnGentlePetal();
+      }
+    }, 1800);
+
     animateFX();
+  }
+
+  function spawnGentlePetal() {
+    const colors = [
+      '110, 21, 38',   // Deep wine rose
+      '226, 172, 178', // Soft blush pink
+      '255, 245, 235', // Jasmine ivory
+      '212, 175, 55'   // Gold flake
+    ];
+
+    const isGold = Math.random() > 0.85;
+    petals.push({
+      x: Math.random() * window.innerWidth,
+      y: -20,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: Math.random() * 0.45 + 0.35,
+      gravity: 0.004,
+      angle: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.015,
+      size: Math.random() * 6 + 5,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      isGold: isGold,
+      life: 450
+    });
   }
 
   function animateFX() {
@@ -531,7 +639,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(245, 230, 200, ${Math.max(0.1, Math.min(0.9, p.alpha))})`;
+        ctx.fillStyle = `rgba(245, 220, 160, ${Math.max(0.1, Math.min(0.9, p.alpha))})`;
         ctx.shadowColor = '#d4af37';
         ctx.shadowBlur = 6;
         ctx.fill();
@@ -539,7 +647,7 @@
       }
     }
 
-    // 2. Draw Petals & Confetti
+    // 2. Draw Tumbling Petals & Confetti
     if (petalCanvas && petals.length > 0) {
       const pCtx = petalCanvas.getContext('2d');
       pCtx.clearRect(0, 0, petalCanvas.width, petalCanvas.height);
@@ -552,26 +660,23 @@
         pt.angle += pt.rotSpeed;
         pt.life--;
 
-        // Draw rotated petal
         pCtx.save();
         pCtx.translate(pt.x, pt.y);
         pCtx.rotate(pt.angle);
 
         if (pt.isGold) {
-          // Golden sparkle square/confetti
-          pCtx.fillStyle = `rgba(240, 200, 80, ${pt.life / 100})`;
+          pCtx.fillStyle = `rgba(220, 180, 70, ${Math.min(1, pt.life / 100)})`;
           pCtx.fillRect(-pt.size / 2, -pt.size / 2, pt.size, pt.size * 0.7);
         } else {
-          // Rose petal ellipse
           pCtx.beginPath();
-          pCtx.ellipse(0, 0, pt.size, pt.size * 0.6, 0, 0, Math.PI * 2);
-          pCtx.fillStyle = `rgba(${pt.color}, ${Math.min(1, pt.life / 60)})`;
+          pCtx.ellipse(0, 0, pt.size, pt.size * 0.65, 0, 0, Math.PI * 2);
+          pCtx.fillStyle = `rgba(${pt.color}, ${Math.min(0.85, pt.life / 60)})`;
           pCtx.fill();
         }
 
         pCtx.restore();
 
-        if (pt.life <= 0 || pt.y > petalCanvas.height + 20) {
+        if (pt.life <= 0 || pt.y > petalCanvas.height + 25) {
           petals.splice(i, 1);
         }
       }
@@ -580,55 +685,28 @@
     requestAnimationFrame(animateFX);
   }
 
-  function burstPetals(originX, originY, count = 50) {
-    const colors = [
-      '220, 60, 80',   // Deep red rose
-      '255, 120, 150', // Soft pink rose
-      '255, 245, 230', // White jasmine
-      '212, 175, 55'   // Gold
-    ];
-
-    for (let i = 0; i < count; i++) {
-      const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.8;
-      const speed = Math.random() * 8 + 3;
-      const isGold = Math.random() > 0.6;
-
-      petals.push({
-        x: originX + (Math.random() - 0.5) * 20,
-        y: originY + (Math.random() - 0.5) * 20,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed - 5,
-        gravity: 0.15,
-        angle: Math.random() * Math.PI * 2,
-        rotSpeed: (Math.random() - 0.5) * 0.12,
-        size: Math.random() * 8 + 6,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        isGold: isGold,
-        life: Math.random() * 60 + 80
-      });
-    }
+  // No explosive bursts — keeping presentation dignified, serene, and standard luxury
+  function burstPetals() {
+    // Intentionally no-op to eliminate all blast/explosion effects
   }
 
   // =================================================================
-  // 7. CALENDAR (.ICS & GOOGLE CALENDAR) EXPORT
+  // 8. CALENDAR (.ICS & GOOGLE CALENDAR) EXPORT
   // =================================================================
   function initCalendarActions() {
     if (!btnAddToCalendar) return;
 
     btnAddToCalendar.addEventListener('click', () => {
-      const { groom, bride, venue, weddingDateISO, dateFormatted, timeFormatted } = WEDDING_CONFIG;
+      const { groom, bride, venue, dateFormatted, timeFormatted } = WEDDING_CONFIG;
       const title = `Wedding: ${groom.name} & ${bride.name}`;
       const location = `${venue.name}, ${venue.city}, ${venue.district || ''}`;
       const description = `Wedding ceremony of ${groom.name} & ${bride.name} on ${dateFormatted} (${timeFormatted}) at ${venue.name}. Directions: ${venue.mapLink}`;
 
-      // Start: 20261220T110000 / End: 20261220T150000 (IST UTC+5:30 -> UTC 05:30 to 09:30)
       const startDateUTC = '20261220T053000Z';
       const endDateUTC = '20261220T093000Z';
 
-      // 1. Offer Google Calendar link or .ics download
       const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDateUTC}/${endDateUTC}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}`;
 
-      // Generate iCal (.ics) string for iOS/Mac/Outlook
       const icsContent = [
         'BEGIN:VCALENDAR',
         'VERSION:2.0',
@@ -645,7 +723,6 @@
         'END:VCALENDAR'
       ].join('\r\n');
 
-      // Create downloadable blob
       const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
@@ -654,9 +731,8 @@
       link.click();
       document.body.removeChild(link);
 
-      // Also alert options
       setTimeout(() => {
-        if (confirm('iCalendar event downloaded! Would you also like to open Google Calendar?')) {
+        if (confirm('iCalendar event downloaded! Would you also like to add this to Google Calendar?')) {
           window.open(googleCalUrl, '_blank');
         }
       }, 500);
@@ -664,7 +740,7 @@
   }
 
   // =================================================================
-  // 8. SHARE INVITATION (Native Web Share & WhatsApp)
+  // 9. SHARE INVITATION (Native Web Share & WhatsApp)
   // =================================================================
   function initShareAction() {
     if (!btnShareInvite) return;
@@ -673,7 +749,7 @@
       const { groom, bride, contact } = WEDDING_CONFIG;
       const shareData = {
         title: `Wedding Invitation: ${groom.name} & ${bride.name}`,
-        text: contact.shareMessage || `You're warmly invited to the wedding celebration of ${groom.name} & ${bride.name}!`,
+        text: contact.shareMessage || `You're warmly invited to celebrate the joyous wedding of ${groom.name} & ${bride.name}!`,
         url: window.location.href
       };
 
@@ -694,7 +770,7 @@
   }
 
   // =================================================================
-  // 9. SCROLL REVEAL OBSERVER & BACK TO TOP
+  // 10. SCROLL REVEAL OBSERVER & BACK TO TOP
   // =================================================================
   function initScrollObservers() {
     const revealCards = document.querySelectorAll('[data-reveal]');
@@ -706,7 +782,7 @@
           }
         });
       }, {
-        threshold: 0.15
+        threshold: 0.12
       });
 
       revealCards.forEach(card => observer.observe(card));
@@ -716,12 +792,49 @@
 
     if (btnScrollTop) {
       btnScrollTop.addEventListener('click', () => {
-        const firstCard = document.querySelector('.card-ivory');
+        const firstCard = document.getElementById('pinterestCardSection');
         if (firstCard) {
           firstCard.scrollIntoView({ behavior: 'smooth' });
         } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+      });
+    }
+  }
+
+  // =================================================================
+  // 11. CINEMATIC VIDEO-STYLE SEQUENTIAL OPENING ANIMATION ENGINE
+  // =================================================================
+  function playVideoAnimation() {
+    const card = document.getElementById('mainTiltCard');
+    const progressFill = document.getElementById('videoProgressFill');
+    if (!card) return;
+
+    // Reset animation state
+    card.classList.remove('video-animating');
+    if (progressFill) {
+      progressFill.classList.remove('animating');
+    }
+
+    // Force browser reflow to re-trigger CSS animations cleanly from t=0
+    void card.offsetWidth;
+
+    // Re-apply animation class
+    card.classList.add('video-animating');
+    if (progressFill) {
+      void progressFill.offsetWidth;
+      progressFill.classList.add('animating');
+    }
+
+    // Clean, dignified completion without explosive blasts
+  }
+
+  function initVideoAnimationControls() {
+    const btnReplay = document.getElementById('btnReplayVideo');
+    if (btnReplay) {
+      btnReplay.addEventListener('click', (e) => {
+        e.preventDefault();
+        playVideoAnimation();
       });
     }
   }
@@ -735,17 +848,34 @@
     initAudioEngine();
     initCanvases();
     initScratchCard();
+    initParallaxTilt();
     initCalendarActions();
     initShareAction();
     initScrollObservers();
+    initVideoAnimationControls();
 
-    // Event Listeners for Opening & Audio
-    if (openInvitationBtn) {
-      openInvitationBtn.addEventListener('click', openInvitation);
+    // Wax Seal click listener
+    if (waxSealBtn) {
+      waxSealBtn.addEventListener('click', openRoyalEnvelope);
     }
 
+    // Open button listener
+    if (openInvitationBtn) {
+      openInvitationBtn.addEventListener('click', openRoyalEnvelope);
+    }
+
+    // Audio toggle
     if (audioToggleBtn) {
       audioToggleBtn.addEventListener('click', toggleMusic);
+    }
+
+    // Fast-forward listener if cover hero is clicked after opening starts
+    if (coverHero) {
+      coverHero.addEventListener('click', () => {
+        if (isInvitationOpened) {
+          finishOpeningTransition();
+        }
+      });
     }
   });
 

@@ -2,29 +2,32 @@
  * ===================================================================
  * WEDDING INVITATION CONFIGURATION
  * ===================================================================
- * Easily customize any wedding details below!
- * All changes will automatically update across the entire site.
+ * Standard Pinterest Luxury Wedding Palette & Authentic Details
  */
 const WEDDING_CONFIG = {
   // Couple Information
   groom: {
-    name: "ASSAN A",
+    name: "Assan A",
     shortName: "Assan",
     title: "Groom"
   },
   bride: {
-    name: "SUMAYYA J",
+    name: "Sumayya J",
     shortName: "Sumayya",
     title: "Bride"
   },
 
-  // Wedding Date & Time
-  // Target format: YYYY-MM-DDTHH:MM:SS+05:30 (India Standard Time)
+  // Event Headline
+  eventTitle: "WEDDING INVITATION",
+  eventSubtitle: "CELEBRATION OF LOVE",
+
+  // Wedding Date & Time (ISO for live countdown)
   weddingDateISO: "2026-12-20T11:00:00+05:30",
-  dateFormatted: "20 DECEMBER 2026",
+  dateFormatted: "20th December, 2026",
   dateNumeric: "20 • 12 • 2026",
   dayOfWeek: "Sunday",
   timeFormatted: "11:00 AM TO 3:00 PM",
+  timeNote: "Lunch & Celebrations Follow",
 
   // Venue & Location
   venue: {
@@ -35,40 +38,43 @@ const WEDDING_CONFIG = {
     mapLink: "https://maps.app.goo.gl/8tPDfiJvE3bpFy9u6?g_st=aw"
   },
 
-  // Emotional & Spiritual Messages
+  // Emotional & Spiritual Messages (Matching Pinterest Reference Cards)
   texts: {
-    bismillahEnglish: "BISMILLAHI RAHMANI RAHIM",
     bismillahArabic: "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
-    saveTheDate: "SAVE THE DATE",
-    openingGratitude: "With hearts full of gratitude and happiness, we invite you to celebrate the beginning of a beautiful journey together.",
+    bismillahEnglish: "BISMILLAHI RAHMANI RAHIM",
+    blessingHeader: "With the blessings of Allah & our beloved families, we are delighted to invite you to join us as we celebrate the joyous",
     togetherFamilies: "TOGETHER WITH OUR FAMILIES",
     requestHonour: "request the honour of your presence at their wedding celebration",
+    holyVerse: "“And We created you in pairs”",
+    holyVerseSource: "— Qur'an 78:8",
+    holyQuoteAlt: "“And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them; and He has put love and mercy between your hearts.”",
+    holyQuoteAltSource: "— Holy Quran (Surah Ar-Rum 30:21)",
+    duaArabic: "دُعَاء خَيْر",
+    duaText: "May Allah bless this union with love, mercy, barakah and endless happiness.",
+    presenceNote: "Your presence will make our day complete ♥",
+    closingPoem: "Come, be a part of our happiest journey as we step into a new chapter of love and togetherness.",
+    saveTheDate: "SAVE THE DATE",
     countdownHeading: "COUNTING DOWN TO FOREVER",
     scratchPrompt: "TOUCH & SCRATCH TO REVEAL DATE",
     scratchSuccess: "WE CANNOT WAIT TO CELEBRATE WITH YOU!",
-    holyQuote: "“And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them; and He has put love and mercy between your hearts.”",
-    holyQuoteSource: "— Holy Quran (Surah Ar-Rum 30:21)",
     willYouJoin: "WILL YOU JOIN US?",
     willYouJoinSub: "Your presence would make our special day even more meaningful and blessed.",
-    closingPoemLine1: "Two hearts,",
-    closingPoemLine2: "One beautiful journey,",
-    closingPoemLine3: "A lifetime of memories waiting to begin.",
     closingGratitude: "Thank you for being part of our special day!"
   },
 
-  // WhatsApp & Calendar Action Links
+  // WhatsApp & Sharing Actions
   contact: {
-    whatsappNumber: "919876543210", // Set your WhatsApp number here (with country code, no +)
-    rsvpMessage: "Assalamu Alaikum! Delighted to confirm our attendance for the wedding of Assan A & Sumayya J on 20th December 2026 at Pankaja Auditorium.",
-    shareMessage: "✨ You are cordially invited to celebrate the wedding of Assan A & Sumayya J on 20th December 2026 at Pankaja Auditorium, Mudappaloor. Tap link to open the invitation:"
+    whatsappNumber: "918606311719",
+    rsvpMessage: "Assalamu Alaikum! Confirming our attendance for the wedding celebration of Assan & Sumayya on 20th December 2026 at Pankaja Auditorium.",
+    shareMessage: "✨ You are cordially invited to celebrate the joyous wedding of Assan & Sumayya on 20th December 2026 at Pankaja Auditorium, Mudappaloor. View the wedding invitation:"
   },
 
   // Audio / Background Music
   audio: {
-    // Wedding Nasheed by Muhammad Al Muqit (https://youtu.be/ivrumxRUz_Y)
     customAudioSrc: "assets/audio/wedding_nasheed.mp3",
     youtubeUrl: "https://youtu.be/ivrumxRUz_Y",
     title: "Wedding Nasheed - Muhammad Al Muqit",
     soundEnabledDefault: true
   }
 };
+

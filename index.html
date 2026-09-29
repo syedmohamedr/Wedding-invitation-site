@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1c2b22">
+  <meta name="theme-color" content="#230d13">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="Wedding Invitation of Assan A & Sumayya J — 20 December 2026 at Pankaja Auditorium, Mudappaloor.">
   
-  <!-- Open Graph / WhatsApp Preview -->
+  <!-- Open Graph / WhatsApp Social Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Wedding Invitation: Assan A & Sumayya J">
-  <meta property="og:description" content="You're cordially invited to celebrate the wedding of Assan A & Sumayya J on 20th December 2026 at Pankaja Auditorium, Mudappaloor. Tap to open invitation.">
-  <meta property="og:image" content="assets/icons/crest.svg">
+  <meta property="og:title" content="Wedding Invitation: Assan & Sumayya">
+  <meta property="og:description" content="With the blessings of Allah & our beloved families, we cordially invite you to celebrate the joyous wedding of Assan & Sumayya on 20th December 2026.">
+  <meta property="og:image" content="assets/images/couple_art.jpg">
   
-  <title>Wedding Invitation | Assan A & Sumayya J</title>
+  <title>Wedding Invitation | Assan &amp; Sumayya</title>
 
-  <!-- Google Fonts for Luxury Royal Aesthetics -->
+  <!-- Google Fonts: Luxury Royal Serif, Calligraphy Script, and Arabic -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-locked">
 
-  <!-- Background Ambience & Stardust Canvas -->
+  <!-- Ambient Royal Stardust & Tumbling Rose Petal Canvases -->
   <canvas id="stardustCanvas" class="stardust-canvas"></canvas>
   <canvas id="petalCanvas" class="petal-canvas"></canvas>
 
-  <!-- Audio Controls Floating Button -->
+  <!-- Floating Audio Controls Button -->
   <button id="audioToggleBtn" class="audio-toggle-btn" aria-label="Toggle Wedding Music">
     <div class="audio-disc">
       <div class="sound-wave">
@@ -42,410 +42,319 @@
   </button>
 
   <!-- ==============================================================
-       COVER / HERO SCREEN (SCREEN 1 - OPENING INVITATION)
+       COVER SCREEN / 3D ROYAL WAX-SEALED ENVELOPE (SCREEN 1)
        ============================================================== -->
   <section id="coverHero" class="cover-hero">
-    <div class="cover-content">
-      <!-- Top Spiritual Text -->
-      <div class="spiritual-tag" id="coverBismillah">BISMILLAHI RAHMANI RAHIM</div>
-      
-      <!-- Golden Diamond Divider -->
-      <div class="golden-motif-line">
-        <span class="motif-line-left"></span>
-        <span class="motif-diamond">✦</span>
-        <span class="motif-line-right"></span>
+    
+    <!-- Ambient Floating Lanterns in Background -->
+    <div class="cover-bg-lanterns">
+      <div class="bg-lantern left"><img src="assets/icons/hanging_lantern.svg" alt="Lantern"></div>
+      <div class="bg-lantern right"><img src="assets/icons/hanging_lantern.svg" alt="Lantern"></div>
+    </div>
+
+    <!-- 3D Envelope Presentation Scene -->
+    <div class="envelope-scene-wrapper" id="envelopeSceneWrapper">
+
+      <!-- Spiritual Header (Cleanly placed at top, never overlapping) -->
+      <div class="cover-spiritual-header" id="coverSpiritualHeader">
+        <p class="bismillah-arabic-header">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+        <span class="bismillah-english-sub" id="coverBismillah">BISMILLAHI RAHMANI RAHIM</span>
       </div>
 
-      <!-- Couple Names in Luxury Serif -->
-      <div class="couple-hero-names">
-        <h1 class="groom-name" id="heroGroomName">ASSAN A</h1>
-        <div class="hero-ampersand">&amp;</div>
-        <h1 class="bride-name" id="heroBrideName">SUMAYYA J</h1>
-      </div>
+      <!-- Envelope Container with 3D Folds -->
+      <div class="envelope-container" id="envelopeContainer">
+        
+        <!-- Envelope Back Layer (with Velvet Damask Lining) -->
+        <div class="envelope-back">
+          <div class="envelope-lining-pattern"></div>
+        </div>
 
-      <!-- Wedding Date -->
-      <div class="hero-date" id="heroDateNumeric">20 • 12 • 2026</div>
+        <!-- The Invitation Card Peek inside the envelope (Authentic Pinterest Artwork) -->
+        <div class="envelope-card-peek" id="envelopeCardPeek">
+          <img src="assets/images/nikah_pinterest_card.jpg" alt="Wedding Invitation Card" class="peek-card-artwork">
+          <div class="peek-card-gold-frame"></div>
+          <div class="peek-card-overlay">
+            <span class="peek-badge">WEDDING INVITATION</span>
+            <span class="peek-names">Assan &amp; Sumayya</span>
+            <span class="peek-date">20 • 12 • 2026</span>
+          </div>
+        </div>
 
-      <!-- Open Invitation CTA Button -->
-      <div class="open-btn-container">
-        <button id="openInvitationBtn" class="btn-open-invitation">
-          <span class="btn-shine"></span>
-          <span class="btn-text">OPEN INVITATION</span>
-          <span class="btn-arrow">→</span>
+        <!-- Envelope Fold Pockets (Left, Right, Bottom) -->
+        <div class="envelope-pocket">
+          <div class="pocket-fold pocket-left"></div>
+          <div class="pocket-fold pocket-right"></div>
+          <div class="pocket-fold pocket-bottom"></div>
+        </div>
+
+        <!-- Envelope 3D Folding Top Flap (Flips open 180deg) -->
+        <div class="envelope-top-flap" id="envelopeTopFlap">
+          <div class="flap-triangle">
+            <div class="flap-gold-edge"></div>
+          </div>
+        </div>
+
+        <!-- Tactile 3D Gold & Velvet Wax Seal Stamped at Center Flap Tip -->
+        <div class="wax-seal-button" id="waxSealBtn" role="button" aria-label="Break Seal & Open Invitation">
+          <div class="wax-seal-body">
+            <img src="assets/icons/crest.svg" alt="Crest" class="wax-crest-svg">
+            <span class="wax-monogram">A &amp; S</span>
+            <div class="wax-stamp-rim"></div>
+          </div>
+          <div class="wax-seal-glow"></div>
+        </div>
+
+      </div> <!-- /.envelope-container -->
+
+      <!-- Action Button & Cue Below Envelope -->
+      <div class="cover-action-suite">
+        <button id="openInvitationBtn" class="btn-royal-unseal">
+          <span class="unseal-foil-shine"></span>
+          <span class="unseal-icon">💌</span>
+          <span class="unseal-text">OPEN INVITATION</span>
+          <span class="unseal-sparkle">✦</span>
         </button>
+
+        <p class="cover-hint">Tap the wax seal or button to unfold</p>
       </div>
 
-      <!-- Subtle hint -->
-      <p class="tap-hint">Tap to unfold our special day</p>
     </div>
   </section>
 
   <!-- ==============================================================
-       MAIN INVITATION WRAPPER (MOBILE-FIRST SCROLLING EXPERIENCE)
+       MAIN INVITATION WRAPPER
        ============================================================== -->
   <main id="invitationContent" class="invitation-main">
 
-    <!-- PANEL 1: CREAM / IVORY BLESSING & GRATITUDE CARD -->
-    <section class="card-section card-ivory" data-reveal>
-      <div class="card-inner">
-        <!-- Luxury Gold Crest -->
-        <div class="crest-container">
-          <img src="assets/icons/crest.svg" alt="Royal Crest" class="gold-crest-icon">
-        </div>
-
-        <!-- Arabic Bismillah Calligraphy -->
-        <div class="bismillah-container">
-          <img src="assets/icons/bismillah.svg" alt="Bismillah Calligraphy" class="bismillah-icon">
-        </div>
-
-        <!-- Emotional Gratitude Message -->
-        <blockquote class="gratitude-quote" id="textOpeningGratitude">
-          “With hearts full of gratitude and happiness, we invite you to celebrate the beginning of a beautiful journey together.”
-        </blockquote>
-
-        <!-- Gold Star Divider -->
-        <div class="gold-star-divider">✦</div>
-
-        <!-- Save the date tag -->
-        <div class="save-tag" id="textSaveTheDate">SAVE THE DATE</div>
-
-        <!-- Connecting Line to next panel -->
-        <div class="connector-line"></div>
-      </div>
-    </section>
-
-    <!-- PANEL 2: ROYAL EMERALD COUPLE PRESENTATION -->
-    <section class="card-section card-emerald" data-reveal>
-      <div class="card-inner">
-        <div class="emerald-top-label" id="textTogetherFamilies">TOGETHER WITH OUR FAMILIES</div>
-
-        <!-- Animated Muslim Bride & Groom Art -->
-        <div class="couple-animation-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%" class="muslim-couple-svg">
-            <defs>
-              <linearGradient id="goldGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff4d0" stop-opacity="0.8"/>
-                <stop offset="50%" stop-color="#d4af37" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#aa7c11" stop-opacity="0"/>
-              </linearGradient>
-
-              <linearGradient id="goldMetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fdf3cf"/>
-                <stop offset="35%" stop-color="#d4af37"/>
-                <stop offset="70%" stop-color="#f3e1a0"/>
-                <stop offset="100%" stop-color="#9a711a"/>
-              </linearGradient>
-
-              <linearGradient id="sherwaniGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0e3d2e"/>
-                <stop offset="50%" stop-color="#09281e"/>
-                <stop offset="100%" stop-color="#041610"/>
-              </linearGradient>
-
-              <linearGradient id="bridalGownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="50%" stop-color="#f8f2e4"/>
-                <stop offset="100%" stop-color="#e9ddc8"/>
-              </linearGradient>
-
-              <linearGradient id="hijabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fffdfa"/>
-                <stop offset="60%" stop-color="#f4eedf"/>
-                <stop offset="100%" stop-color="#dfd2bb"/>
-              </linearGradient>
-
-              <linearGradient id="veilGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
-                <stop offset="70%" stop-color="#f5ecda" stop-opacity="0.35"/>
-                <stop offset="100%" stop-color="#d4af37" stop-opacity="0.15"/>
-              </linearGradient>
-
-              <filter id="coupleShadow" x="-10%" y="-10%" width="120%" height="120%">
-                <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.45"/>
-              </filter>
-            </defs>
-
-            <!-- Background Halo & Arch -->
-            <g class="couple-halo">
-              <circle cx="160" cy="160" r="130" fill="url(#goldGlowGrad)"/>
-              <circle cx="160" cy="160" r="135" fill="none" stroke="url(#goldMetalGrad)" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.65"/>
-              <circle cx="160" cy="160" r="142" fill="none" stroke="url(#goldMetalGrad)" stroke-width="0.8" opacity="0.45"/>
-              <path d="M160 25 L161.5 28.5 L165 30 L161.5 31.5 L160 35 L158.5 31.5 L155 30 L158.5 28.5 Z" fill="url(#goldMetalGrad)"/>
-            </g>
-
-            <!-- Floating Sparkles -->
-            <g class="floating-sparkles">
-              <path d="M60 120 L62 125 L67 127 L62 129 L60 134 L58 129 L53 127 L58 125 Z" fill="url(#goldMetalGrad)" class="sparkle sp-1"/>
-              <path d="M260 110 L261.5 114 L265 116 L261.5 118 L260 122 L258.5 118 L255 116 L258.5 114 Z" fill="url(#goldMetalGrad)" class="sparkle sp-2"/>
-              <path d="M75 220 L76.5 223 L80 225 L76.5 227 L75 230 L73.5 227 L70 225 L73.5 223 Z" fill="url(#goldMetalGrad)" class="sparkle sp-3"/>
-              <path d="M250 210 L252 215 L257 217 L252 219 L250 224 L248 219 L243 217 L248 215 Z" fill="url(#goldMetalGrad)" class="sparkle sp-4"/>
-            </g>
-
-            <!-- Couple Figures -->
-            <g class="couple-figures" filter="url(#coupleShadow)">
-              <!-- Groom (Left) -->
-              <g class="groom-group">
-                <path d="M78 280 L88 175 Q98 145 125 140 L145 140 Q155 142 160 148 L160 280 Z" fill="url(#sherwaniGrad)"/>
-                <path d="M125 140 Q135 138 145 140 L145 152 Q135 150 125 152 Z" fill="url(#goldMetalGrad)"/>
-                <line x1="140" y1="152" x2="140" y2="280" stroke="url(#goldMetalGrad)" stroke-width="2.5"/>
-                <circle cx="140" cy="165" r="2" fill="#fff8e0"/>
-                <circle cx="140" cy="180" r="2" fill="#fff8e0"/>
-                <circle cx="140" cy="195" r="2" fill="#fff8e0"/>
-                <circle cx="140" cy="210" r="2" fill="#fff8e0"/>
-                <path d="M102 152 Q112 185 110 240 Q108 265 106 280" fill="none" stroke="url(#goldMetalGrad)" stroke-width="6" stroke-linecap="round" opacity="0.95"/>
-                <path d="M128 140 L128 126 Q135 128 142 126 L142 140 Z" fill="#e8cbb0"/>
-                <path d="M124 126 C120 120 122 100 134 94 C146 88 154 96 154 112 C154 126 142 130 134 130 C128 130 125 128 124 126 Z" fill="#eecfb4"/>
-                <path d="M126 102 C124 92 134 86 145 88 C153 90 156 98 156 106 C150 102 142 100 134 104 C128 108 127 114 126 118 Z" fill="#1a1410"/>
-                <path d="M125 120 C125 127 132 131 138 131 C144 131 148 128 150 124 C146 126 140 127 135 126 C130 125 126 122 125 120 Z" fill="#231b15"/>
-                <path d="M88 175 Q96 200 120 215 Q140 220 155 220" fill="none" stroke="url(#sherwaniGrad)" stroke-width="15" stroke-linecap="round"/>
-                <path d="M152 216 Q160 216 166 218" fill="none" stroke="#eecfb4" stroke-width="8" stroke-linecap="round"/>
-              </g>
-
-              <!-- Bride (Right) -->
-              <g class="bride-group">
-                <path d="M175 100 Q225 120 235 190 Q242 245 240 280 L185 280 Q195 240 190 180 Z" fill="url(#veilGrad)" class="bride-veil"/>
-                <path d="M175 100 Q225 120 235 190 Q242 245 240 280" fill="none" stroke="url(#goldMetalGrad)" stroke-width="1.8" stroke-dasharray="3 3" opacity="0.85" class="bride-veil-border"/>
-                <path d="M155 160 Q175 152 195 160 Q215 190 225 280 L145 280 Q150 220 155 160 Z" fill="url(#bridalGownGrad)"/>
-                <path d="M165 200 Q185 195 205 200" fill="none" stroke="url(#goldMetalGrad)" stroke-width="2"/>
-                <path d="M160 235 Q185 230 215 235" fill="none" stroke="url(#goldMetalGrad)" stroke-width="2"/>
-                <path d="M152 270 Q185 265 220 270" fill="none" stroke="url(#goldMetalGrad)" stroke-width="2.5"/>
-                <path d="M175 138 L175 146 Q182 148 190 146 L190 138 Z" fill="#f0d5be"/>
-                <path d="M173 148 Q182 156 192 148" fill="none" stroke="url(#goldMetalGrad)" stroke-width="2.2"/>
-                <circle cx="182.5" cy="154" r="2" fill="#ffffff"/>
-                <path d="M168 126 C168 116 172 105 182 105 C192 105 198 114 198 125 C198 136 188 140 180 140 C173 140 168 134 168 126 Z" fill="#f5dbca"/>
-                <ellipse cx="178" cy="125" rx="4" ry="2.5" fill="#f3a8a8" opacity="0.65"/>
-                <path d="M174 120 Q177 117 180 120" fill="none" stroke="#4a3728" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M174 131 Q177 134 180 132" fill="none" stroke="#d47070" stroke-width="1.2" stroke-linecap="round"/>
-                <path d="M166 116 C165 98 178 88 192 90 C206 92 212 105 210 120 C208 135 204 148 198 152 Q185 156 172 152 Q164 135 166 116 Z" fill="url(#hijabGrad)"/>
-                <path d="M168 116 C167 106 174 98 184 98 C192 98 197 104 197 114 C197 122 192 128 184 130 Q173 130 168 116 Z" fill="#f5dbca"/>
-                <path d="M172 100 Q182 104 192 100" fill="none" stroke="url(#goldMetalGrad)" stroke-width="1.8"/>
-                <circle cx="182" cy="104" r="1.8" fill="#ffffff"/>
-                <path d="M195 165 Q205 195 185 210" fill="none" stroke="url(#bridalGownGrad)" stroke-width="12" stroke-linecap="round"/>
-                <circle cx="178" cy="214" r="5" fill="#f0d5be"/>
-                <path d="M181 210 L185 214" stroke="url(#goldMetalGrad)" stroke-width="3" stroke-linecap="round"/>
-
-                <!-- Bridal Bouquet -->
-                <g class="couple-bouquet">
-                  <path d="M170 205 Q160 198 155 205 Q162 215 170 205 Z" fill="#1b4d3e"/>
-                  <path d="M185 205 Q195 198 200 205 Q192 215 185 205 Z" fill="#1b4d3e"/>
-                  <circle cx="172" cy="208" r="6.5" fill="#ffffff"/>
-                  <circle cx="182" cy="205" r="7.5" fill="#ffffff"/>
-                  <circle cx="176" cy="215" r="6" fill="#fcedd7"/>
-                  <circle cx="185" cy="214" r="5.5" fill="#ffffff"/>
-                  <path d="M178 222 Q174 235 170 242" fill="none" stroke="url(#goldMetalGrad)" stroke-width="1.8"/>
-                  <path d="M180 222 Q183 235 188 244" fill="none" stroke="url(#goldMetalGrad)" stroke-width="1.8"/>
-                </g>
-              </g>
-
-              <!-- Beating Golden Heart -->
-              <g class="love-heart-glow">
-                <path d="M160 76 C160 72 155 66 149 66 C143 66 139 71 139 76 C139 84 150 91 160 98 C170 91 181 84 181 76 C181 71 177 66 171 66 C165 66 160 72 160 76 Z" fill="url(#goldMetalGrad)" opacity="0.95" class="heart-pulse"/>
-                <circle cx="160" cy="82" r="1.5" fill="#ffffff"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-
-        <div class="couple-display-group">
-          <div class="couple-title-name" id="sectionGroomName">ASSAN A</div>
-          <div class="flourished-amp">&amp;</div>
-          <div class="couple-title-name" id="sectionBrideName">SUMAYYA J</div>
-        </div>
-
-        <p class="invitation-subtext" id="textRequestHonour">
-          request the honour of your presence at their wedding celebration
-        </p>
-
-        <div class="scroll-cue">
-          <span class="scroll-arrow">↓</span>
+    <!-- ============================================================
+         THE PINTEREST ROYAL WEDDING INVITATION CARD (CENTERPIECE)
+         Classic Rich Look: Damask Paper, Royal Burgundy & Gold Foil
+         ============================================================ -->
+    <!-- ============================================================
+         THE PINTEREST WEDDING INVITATION CARD (CENTERPIECE)
+         Exact Replica of https://pin.it/62JWSZST5
+         ============================================================ -->
+    <section class="pinterest-card-section" id="pinterestCardSection" data-reveal>
+      
+      <!-- Video Replay & Cinematic Progress Controller -->
+      <div class="video-animation-bar">
+        <button id="btnReplayVideo" class="btn-replay-video" aria-label="Replay Cinematic Invitation Animation">
+          <span class="replay-icon">↻</span>
+          <span class="replay-text">REPLAY ANIMATION</span>
+          <span class="replay-sparkle">✦</span>
+        </button>
+        <div class="video-progress-track">
+          <div class="video-progress-fill animating" id="videoProgressFill"></div>
         </div>
       </div>
+
+      <!-- Interactive 3D Card Shell with Parallax Tilt & Sequential Video Animation -->
+      <div class="pinterest-invitation-card video-animating" id="mainTiltCard">
+        
+        <!-- Base Authentic Pinterest Card Artwork with Deckle Edges, Arch & Seated Couple -->
+        <img src="assets/images/nikah_pinterest_card.jpg" alt="Wedding Invitation Card" class="pinterest-card-base-img" id="cardBaseImg">
+
+        <!-- Golden Light Sweep Over Sacred In Sha Allah & Nikah Calligraphy (Step 1) -->
+        <div class="sacred-calligraphy-sheen" id="sacredCalligraphySheen"></div>
+
+        <!-- Warm Filament Glow Over Vintage Birdcage Lanterns (Step 1) -->
+        <div class="lantern-filament-glow lantern-glow-left" id="lanternGlowLeft"></div>
+        <div class="lantern-filament-glow lantern-glow-right" id="lanternGlowRight"></div>
+
+        <!-- Gold Wax Seal Shimmer Gleam on Left Tassel Seal (Step 6) -->
+        <div class="wax-seal-shimmer-point" id="waxSealGleam"></div>
+
+        <!-- Soft Ethereal Atmospheric Mist Layer Across Bottom Couple -->
+        <div class="bottom-mist-layer"></div>
+
+        <!-- Dynamic Overlay Positioned Seamlessly Inside Carved Arch Area -->
+        <div class="card-arch-overlay">
+          
+          <!-- Couple Names in Romantic Script Calligraphy (Appears Step 2) -->
+          <div class="nikah-couple-display anim-seq anim-step-couple">
+            <span class="nikah-groom-name" id="mainGroomName">Assan</span>
+            <span class="nikah-couple-amp">&amp;</span>
+            <span class="nikah-bride-name" id="mainBrideName">Sumayya</span>
+            <span class="couple-gold-shimmer"></span>
+          </div>
+
+          <!-- Auspicious Details Section (Matching Original Pinterest Typography) -->
+          <div class="nikah-details-stack">
+
+            <!-- Date Block (Appears Step 3) -->
+            <div class="nikah-detail-item item-date anim-seq anim-step-date">
+              <div class="nikah-icon-wrap">
+                <img src="assets/icons/pin_calendar.svg" alt="Calendar" class="nikah-pin-icon">
+              </div>
+              <div class="nikah-date-val" id="detailDateFormatted">Sunday, 20th December 2026</div>
+            </div>
+
+            <!-- Time Block (Appears Step 4) -->
+            <div class="nikah-detail-item item-time anim-seq anim-step-time">
+              <div class="nikah-icon-wrap">
+                <img src="assets/icons/pin_clock.svg" alt="Clock" class="nikah-pin-icon">
+              </div>
+              <div class="nikah-time-val" id="detailTimeFormatted">11:00 AM TO 3:00 PM</div>
+              <div class="nikah-sub-val" id="detailTimeNote">Lunch &amp; Celebrations Follow</div>
+            </div>
+
+            <!-- Venue Block (Appears Step 5) -->
+            <div class="nikah-detail-item item-venue anim-seq anim-step-venue">
+              <div class="nikah-icon-wrap">
+                <img src="assets/icons/pin_location.svg" alt="Venue" class="nikah-pin-icon">
+              </div>
+              <div class="nikah-venue-val" id="detailVenueName">PANKAJA AUDITORIUM</div>
+              <div class="nikah-venue-city-val" id="detailVenueCity">Mudappaloor, Palakkad, Kerala</div>
+            </div>
+
+          </div> <!-- /.nikah-details-stack -->
+
+        </div> <!-- /.card-arch-overlay -->
+
+      </div> <!-- /.pinterest-invitation-card -->
     </section>
 
-    <!-- PANEL 3: LUXURY GOLD INTERACTIVE SCRATCH-TO-REVEAL SECTION -->
-    <section class="card-section card-gold-ambient" data-reveal>
-      <div class="scratch-card-wrapper">
-        <div class="scratch-card-header">
-          <span class="scratch-badge">EXCLUSIVE REVEAL</span>
-          <h3 class="scratch-heading">A Special Date Awaits</h3>
+
+
+    <!-- ============================================================
+         INTERACTIVE SUITE 2: LIVE COUNTDOWN TO FOREVER
+         ============================================================ -->
+    <section class="card-section countdown-section" data-reveal>
+      <div class="interactive-panel">
+        <div class="panel-header">
+          <span class="panel-badge">WEDDING COUNTDOWN</span>
+          <h3 class="panel-title" id="textCountdownHeading">COUNTING DOWN TO FOREVER</h3>
         </div>
 
-        <!-- Scratch Box Container -->
-        <div class="scratch-box" id="scratchBox">
-          <!-- Revealed Content (Hidden underneath canvas) -->
-          <div class="scratch-reveal-content">
-            <div class="revealed-icon">💍</div>
-            <div class="revealed-tag">THE AUSPICIOUS DAY</div>
-            <div class="revealed-date" id="revealedDateText">20 DECEMBER 2026</div>
-            <div class="revealed-time" id="revealedTimeText">SUNDAY • 11:00 AM TO 3:00 PM</div>
-            <div class="revealed-venue" id="revealedVenueText">Pankaja Auditorium, Mudappaloor</div>
-            <div class="revealed-status" id="scratchSuccessMsg">✨ We can't wait to see you! ✨</div>
+        <div class="countdown-grid">
+          <div class="countdown-card">
+            <span class="countdown-val" id="timerDays">00</span>
+            <span class="countdown-lbl">DAYS</span>
           </div>
-
-          <!-- HTML5 Scratch Canvas -->
-          <canvas id="scratchCanvas" class="scratch-canvas" width="340" height="230"></canvas>
-        </div>
-
-        <div class="scratch-instruction" id="scratchInstruction">
-          <span class="finger-icon">👆</span>
-          <span>Touch &amp; scratch the card to reveal the date</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- PANEL 4: ROYAL EMERALD COUNTDOWN TIMER -->
-    <section class="card-section card-emerald countdown-section" data-reveal>
-      <div class="card-inner">
-        <div class="countdown-eyebrow" id="textCountdownHeading">COUNTING DOWN TO FOREVER</div>
-
-        <!-- 4 Column Live Timer -->
-        <div class="timer-grid">
-          <div class="timer-card">
-            <span class="timer-number" id="timerDays">00</span>
-            <span class="timer-unit">DAYS</span>
+          <div class="countdown-card">
+            <span class="countdown-val" id="timerHours">00</span>
+            <span class="countdown-lbl">HOURS</span>
           </div>
-          <div class="timer-card">
-            <span class="timer-number" id="timerHours">00</span>
-            <span class="timer-unit">HOURS</span>
+          <div class="countdown-card">
+            <span class="countdown-val" id="timerMinutes">00</span>
+            <span class="countdown-lbl">MIN</span>
           </div>
-          <div class="timer-card">
-            <span class="timer-number" id="timerMinutes">00</span>
-            <span class="timer-unit">MIN</span>
-          </div>
-          <div class="timer-card">
-            <span class="timer-number" id="timerSeconds">00</span>
-            <span class="timer-unit">SEC</span>
+          <div class="countdown-card">
+            <span class="countdown-val" id="timerSeconds">00</span>
+            <span class="countdown-lbl">SEC</span>
           </div>
         </div>
 
-        <div class="gold-star-divider small">✦</div>
-      </div>
-    </section>
-
-    <!-- PANEL 5: WARM IVORY EVENT DETAILS & HOLY BLESSING -->
-    <section class="card-section card-ivory" data-reveal>
-      <div class="card-inner">
-        <div class="join-us-label">JOIN US ON</div>
-        <div class="gold-star-divider small">✦</div>
-
-        <!-- Big Highlighted Date -->
-        <div class="main-event-date" id="eventDateBig">20 DECEMBER 2026</div>
-        <div class="main-event-daytime" id="eventDayTime">Sunday • 11:00 AM TO 3:00 PM</div>
-        <div class="main-event-celebration">at our wedding celebration</div>
-
-        <div class="holy-verse-box">
-          <p class="holy-verse-text" id="textHolyQuote">
+        <div class="holy-verse-banner">
+          <p class="holy-banner-quote" id="textHolyQuoteAlt">
             “And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them; and He has put love and mercy between your hearts.”
           </p>
-          <span class="holy-verse-source" id="textHolyQuoteSource">— Holy Quran (Surah Ar-Rum 30:21)</span>
+          <span class="holy-banner-source" id="textHolyQuoteAltSource">— Holy Quran (Surah Ar-Rum 30:21)</span>
         </div>
-
-        <div class="connector-line"></div>
       </div>
     </section>
 
-    <!-- PANEL 6: VENUE LOCATION & ACTIONS -->
-    <section class="card-section card-emerald venue-section" data-reveal>
-      <div class="card-inner">
-        <div class="venue-eyebrow">THE VENUE</div>
-        <h2 class="venue-name" id="venueNameText">Pankaja Auditorium</h2>
-        <p class="venue-city" id="venueCityText">Mudappaloor, Palakkad</p>
+    <!-- ============================================================
+         INTERACTIVE SUITE 3: VENUE & ACTIONS (MAPS & CALENDAR)
+         ============================================================ -->
+    <section class="card-section venue-section" data-reveal>
+      <div class="interactive-panel">
+        <div class="panel-header">
+          <span class="panel-badge">THE CEREMONY VENUE</span>
+          <h3 class="panel-title" id="venueNameText">Pankaja Auditorium</h3>
+          <p class="panel-subtitle" id="venueCityText">Mudappaloor, Palakkad District, Kerala</p>
+        </div>
 
-        <!-- Location Card & Google Map Preview -->
-        <div class="map-card-preview">
-          <div class="map-decorative-ring">
-            <span class="map-pin-icon">📍</span>
+        <div class="venue-preview-box">
+          <div class="venue-icon-circle">
+            <span class="venue-pin-emoji">🏛️</span>
           </div>
-          <div class="map-info-text">
-            <div class="map-heading">Pankaja Auditorium</div>
-            <div class="map-subheading">Mudappaloor, Palakkad District, Kerala</div>
+          <div class="venue-info-text">
+            <div class="venue-h1" id="venueCardTitle">Pankaja Auditorium</div>
+            <div class="venue-sub1" id="venueFullAddress">Mudappaloor, Palakkad District, Kerala</div>
+            <div class="venue-time-badge">Sunday, 20 Dec 2026 • 11:00 AM - 3:00 PM</div>
           </div>
         </div>
 
-        <!-- Main Action Buttons -->
-        <div class="action-buttons-group">
-          <!-- Google Maps Button -->
-          <a id="btnMapDirections" href="https://maps.app.goo.gl/8tPDfiJvE3bpFy9u6?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn-primary-gold">
-            <span class="btn-icon">📍</span>
-            <span>GET DIRECTIONS</span>
+        <div class="action-buttons-stack">
+          <!-- Google Maps Directions -->
+          <a id="btnMapDirections" href="https://maps.app.goo.gl/8tPDfiJvE3bpFy9u6?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn-royal-gold">
+            <span class="btn-ico">📍</span>
+            <span>GET DIRECTIONS (GOOGLE MAPS)</span>
           </a>
 
-          <!-- Add to Calendar Button -->
-          <button id="btnAddToCalendar" class="btn-secondary-outline">
-            <span class="btn-icon">📅</span>
+          <!-- Add to Calendar -->
+          <button id="btnAddToCalendar" class="btn-royal-outline">
+            <span class="btn-ico">📅</span>
             <span>ADD TO CALENDAR</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- PANEL 7: WILL YOU JOIN US & RSVP / SHARING -->
-    <section class="card-section card-emerald rsvp-section" data-reveal>
-      <div class="card-inner">
-        <div class="rsvp-eyebrow">CORDIAL INVITATION</div>
-        <h2 class="rsvp-title" id="textWillYouJoin">WILL YOU JOIN US?</h2>
-        <p class="rsvp-desc" id="textWillYouJoinSub">
-          Your presence would make our special day even more meaningful and blessed.
-        </p>
+    <!-- ============================================================
+         INTERACTIVE SUITE 4: CORDIAL RSVP & SHARING
+         ============================================================ -->
+    <section class="card-section rsvp-section" data-reveal>
+      <div class="interactive-panel">
+        <div class="panel-header">
+          <span class="panel-badge">CORDIAL INVITATION</span>
+          <h3 class="panel-title" id="textWillYouJoin">WILL YOU JOIN US?</h3>
+          <p class="panel-subtitle" id="textWillYouJoinSub">
+            Your presence would make our special day even more meaningful and blessed.
+          </p>
+        </div>
 
-        <div class="rsvp-buttons-group">
-          <!-- RSVP via WhatsApp -->
-          <a id="btnWhatsAppRsvp" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary-gold">
-            <span class="btn-icon">💬</span>
+        <div class="action-buttons-stack">
+          <!-- WhatsApp RSVP -->
+          <a id="btnWhatsAppRsvp" href="#" target="_blank" rel="noopener noreferrer" class="btn-royal-gold">
+            <span class="btn-ico">💬</span>
             <span>RSVP VIA WHATSAPP</span>
           </a>
 
           <!-- Share Invitation -->
-          <button id="btnShareInvite" class="btn-secondary-outline">
-            <span class="btn-icon">💌</span>
+          <button id="btnShareInvite" class="btn-royal-outline">
+            <span class="btn-ico">💌</span>
             <span>SHARE INVITATION</span>
           </button>
         </div>
       </div>
     </section>
 
-    <!-- PANEL 8: CLOSING BLESSING & POEM (EXACT MATCH TO REFERENCE FOOTER) -->
-    <section class="card-section card-emerald footer-section" data-reveal>
-      <div class="card-inner">
-        <!-- Poetic Quote from Screenshot -->
-        <div class="closing-poem">
-          <p class="poem-line" id="poemLine1">Two hearts,</p>
-          <p class="poem-line" id="poemLine2">One beautiful journey,</p>
-          <p class="poem-line" id="poemLine3">A lifetime of memories waiting to begin.</p>
+    <!-- ============================================================
+         FOOTER SIGN-OFF & BACK TO TOP
+         ============================================================ -->
+    <footer class="card-section site-footer" data-reveal>
+      <div class="footer-inner">
+        <div class="footer-crest-wrap">
+          <img src="assets/icons/crest.svg" alt="Crest" class="footer-crest-img">
         </div>
 
-        <div class="gold-star-divider small">✦</div>
+        <div class="footer-couple-title" id="footerCoupleName">ASSAN A &amp; SUMAYYA J</div>
+        <div class="footer-date-tag" id="footerDateNumeric">20 • 12 • 2026</div>
 
-        <!-- Couple Sign-off -->
-        <div class="footer-couple-names">
-          <div class="footer-name" id="footerCoupleName">ASSAN A &amp; SUMAYYA J</div>
-        </div>
+        <div class="footer-divider-sparkle">✦ ━━━━ ✦ ━━━━ ✦</div>
 
-        <div class="footer-date" id="footerDateNumeric">20 • 12 • 2026</div>
-
-        <div class="gold-star-divider small">✦</div>
-
-        <p class="footer-gratitude" id="textClosingGratitude">
+        <p class="footer-thank-you" id="textClosingGratitude">
           Thank you for being part of our special day!
         </p>
 
-        <div class="footer-venue-tag" id="footerVenueTag">
+        <div class="footer-venue-tagline" id="footerVenueTag">
           PANKAJA AUDITORIUM • MUDAPPALOOR
         </div>
 
-        <div class="back-to-top-wrap">
-          <button id="btnScrollTop" class="btn-scroll-top" aria-label="Back to top">
+        <div class="scroll-top-wrapper">
+          <button id="btnScrollTop" class="btn-scroll-top" aria-label="Return to top">
             <span>↑</span>
           </button>
         </div>
       </div>
-    </section>
+    </footer>
 
   </main>
 
-  <!-- Load Configuration First -->
+  <!-- Configuration & Logic Scripts -->
   <script src="config.js"></script>
-  <!-- Load Main Logic -->
   <script src="script.js"></script>
 </body>
 </html>
