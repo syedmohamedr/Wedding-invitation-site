@@ -581,7 +581,132 @@ body.is-locked {
   font-weight: 500;
   letter-spacing: 0.28em;
   color: var(--gold-primary);
-  margin-bottom: 26px;
+  margin-bottom: 20px;
+}
+
+/* ===================================================================
+   ANIMATED MUSLIM BRIDE & GROOM ILLUSTRATION
+   =================================================================== */
+.couple-animation-container {
+  width: 210px;
+  height: 210px;
+  margin: 0 auto 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.55));
+}
+
+.muslim-couple-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Gentle floating & breathing effect on couple */
+.couple-figures {
+  animation: floatCouple 4.5s ease-in-out infinite;
+  transform-origin: 160px 280px;
+}
+
+@keyframes floatCouple {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Bride's sheer veil flowing gently in breeze */
+.bride-veil,
+.bride-veil-border {
+  animation: swayVeil 5s ease-in-out infinite alternate;
+  transform-origin: 175px 100px;
+}
+
+@keyframes swayVeil {
+  0% {
+    transform: rotate(0deg) skewX(0deg);
+  }
+  100% {
+    transform: rotate(2.5deg) skewX(2deg) translateX(3px);
+  }
+}
+
+/* Golden Halo Pulse & Shimmer */
+.couple-halo {
+  animation: haloPulse 5.5s ease-in-out infinite;
+  transform-origin: 160px 160px;
+}
+
+@keyframes haloPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.035);
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.6));
+  }
+}
+
+/* Beating Golden Heart */
+.heart-pulse {
+  animation: heartBeat 2.2s ease-in-out infinite;
+  transform-origin: 160px 82px;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.22);
+    filter: drop-shadow(0 0 8px #ffd57a);
+  }
+  28% {
+    transform: scale(1.06);
+  }
+  42% {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 6px #ffd57a);
+  }
+}
+
+/* Floating Stardust Sparkles around Couple */
+.floating-sparkles .sp-1 {
+  animation: sparkleTwinkle 2.6s ease-in-out infinite;
+  transform-origin: 60px 127px;
+}
+
+.floating-sparkles .sp-2 {
+  animation: sparkleTwinkle 3.2s ease-in-out 0.8s infinite;
+  transform-origin: 260px 116px;
+}
+
+.floating-sparkles .sp-3 {
+  animation: sparkleTwinkle 2.9s ease-in-out 1.4s infinite;
+  transform-origin: 75px 225px;
+}
+
+.floating-sparkles .sp-4 {
+  animation: sparkleTwinkle 3.4s ease-in-out 0.5s infinite;
+  transform-origin: 250px 217px;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.75);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 6px #ffe39d);
+  }
 }
 
 .couple-display-group {
