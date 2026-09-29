@@ -727,51 +727,6 @@
   }
 
   // =================================================================
-  // 10. EDIT HELPER PANEL (Interactive live live-editing)
-  // =================================================================
-  function initCustomizerPanel() {
-    const panel = document.getElementById('customizerPanel');
-    const toggleBtn = document.getElementById('toggleCustomizerBtn');
-    const form = document.getElementById('customizerForm');
-    const resetBtn = document.getElementById('btnResetDefaults');
-
-    if (!panel || !toggleBtn || !form) return;
-
-    toggleBtn.addEventListener('click', () => {
-      panel.classList.toggle('collapsed');
-    });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      WEDDING_CONFIG.groom.name = document.getElementById('inputGroom').value;
-      WEDDING_CONFIG.bride.name = document.getElementById('inputBride').value;
-      WEDDING_CONFIG.dateFormatted = document.getElementById('inputDate').value;
-      WEDDING_CONFIG.timeFormatted = document.getElementById('inputTime').value;
-      WEDDING_CONFIG.venue.name = document.getElementById('inputVenue').value;
-      WEDDING_CONFIG.venue.city = document.getElementById('inputLocation').value;
-      WEDDING_CONFIG.venue.mapLink = document.getElementById('inputMapLink').value;
-      WEDDING_CONFIG.contact.whatsappNumber = document.getElementById('inputWhatsapp').value;
-
-      applyWeddingConfig();
-      panel.classList.add('collapsed');
-      alert('Wedding details updated live!');
-    });
-
-    if (resetBtn) {
-      resetBtn.addEventListener('click', () => {
-        document.getElementById('inputGroom').value = 'ASSAN A';
-        document.getElementById('inputBride').value = 'SUMAYYA J';
-        document.getElementById('inputDate').value = '20 DECEMBER 2026';
-        document.getElementById('inputTime').value = '11:00 AM TO 3:00 PM';
-        document.getElementById('inputVenue').value = 'Pankaja Auditorium';
-        document.getElementById('inputLocation').value = 'Mudappaloor';
-        document.getElementById('inputMapLink').value = 'https://maps.app.goo.gl/8tPDfiJvE3bpFy9u6?g_st=aw';
-        document.getElementById('inputWhatsapp').value = '919876543210';
-      });
-    }
-  }
-
-  // =================================================================
   // INITIALIZATION ON DOM READY
   // =================================================================
   document.addEventListener('DOMContentLoaded', () => {
@@ -783,7 +738,6 @@
     initCalendarActions();
     initShareAction();
     initScrollObservers();
-    initCustomizerPanel();
 
     // Event Listeners for Opening & Audio
     if (openInvitationBtn) {
