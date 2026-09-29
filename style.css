@@ -4,31 +4,31 @@
    =================================================================== */
 
 :root {
-  /* Royal Palette */
-  --bg-emerald-deep: #06231a;
-  --bg-emerald-mid: #0a3326;
-  --bg-emerald-light: #114534;
-  --bg-emerald-darkest: #041610;
+  /* Modern Pinterest Luxury Wedding Palette: Velvet Olive Sage & Eucalyptus */
+  --bg-emerald-deep: #1c2b22;
+  --bg-emerald-mid: #2a3e32;
+  --bg-emerald-light: #3c5445;
+  --bg-emerald-darkest: #121d17;
 
-  /* Ivory / Cream Palette */
-  --bg-ivory-light: #faf6ee;
-  --bg-ivory-warm: #f3ece0;
-  --text-ivory-dark: #07251c;
-  --text-ivory-muted: #4a5d54;
+  /* Pinterest Warm Linen & Cashmere Ivory */
+  --bg-ivory-light: #faf7f2;
+  --bg-ivory-warm: #f2ece0;
+  --text-ivory-dark: #1a2820;
+  --text-ivory-muted: #57675c;
 
-  /* Metallic Gold Palette */
-  --gold-primary: #d4af37;
-  --gold-light: #f5e6c8;
-  --gold-bright: #fff3db;
-  --gold-dark: #9e781e;
-  --gold-border: rgba(212, 175, 55, 0.45);
-  --gold-border-glow: rgba(212, 175, 55, 0.25);
+  /* Brushed Champagne Gold & Warm Brass Accents */
+  --gold-primary: #d1b478;
+  --gold-light: #f7eed9;
+  --gold-bright: #fff8e8;
+  --gold-dark: #997e47;
+  --gold-border: rgba(209, 180, 120, 0.42);
+  --gold-border-glow: rgba(209, 180, 120, 0.22);
 
-  /* Gradients */
-  --grad-emerald: linear-gradient(180deg, #07261d 0%, #0d3b2e 50%, #051b14 100%);
-  --grad-ivory: linear-gradient(180deg, #fcf9f3 0%, #f4ede0 100%);
-  --grad-gold-foil: linear-gradient(135deg, #d4af37 0%, #f6e2b3 35%, #e2b755 70%, #aa7c11 100%);
-  --grad-gold-ambient: linear-gradient(180deg, #d8bc88 0%, #ebd7b2 45%, #c89e5a 100%);
+  /* Pinterest Gradients */
+  --grad-emerald: linear-gradient(180deg, #1c2b22 0%, #293e32 50%, #142019 100%);
+  --grad-ivory: linear-gradient(180deg, #fdfbf7 0%, #f3ede2 100%);
+  --grad-gold-foil: linear-gradient(135deg, #d1b478 0%, #f9edd5 35%, #e0c58e 70%, #9e8149 100%);
+  --grad-gold-ambient: linear-gradient(180deg, #d4c09b 0%, #ebdcc2 45%, #c2ac80 100%);
 
   /* Typography */
   --font-serif-heading: 'Cinzel', serif;
@@ -183,7 +183,7 @@ body.is-locked {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at 50% 45%, #0e4031 0%, #08291f 45%, #041710 100%);
+  background: radial-gradient(circle at 50% 45%, #2a3e33 0%, #1c2b22 45%, #101a14 100%);
   padding: 24px;
   text-align: center;
   transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.9s ease;
@@ -481,7 +481,7 @@ body.is-locked {
   font-size: 1.35rem;
   line-height: 1.6;
   font-weight: 400;
-  color: #0c2b21;
+  color: #1a2820;
   margin: 10px 0 20px;
   padding: 0 10px;
 }
@@ -509,7 +509,7 @@ body.is-locked {
   font-size: clamp(2rem, 7vw, 2.5rem);
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #06231a;
+  color: #1a2820;
   line-height: 1.2;
   margin: 6px 0;
 }
@@ -546,7 +546,7 @@ body.is-locked {
   font-size: 1.05rem;
   font-style: italic;
   line-height: 1.6;
-  color: #08281d;
+  color: #1a2820;
   margin-bottom: 10px;
 }
 
@@ -784,7 +784,7 @@ body.is-locked {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.22em;
-  background: #07261d;
+  background: #1c2b22;
   color: var(--gold-light);
   padding: 4px 12px;
   border-radius: 20px;
@@ -795,7 +795,7 @@ body.is-locked {
   font-family: var(--font-serif-heading);
   font-size: 1.45rem;
   font-weight: 600;
-  color: #07261d;
+  color: #1c2b22;
 }
 
 /* Scratch Box */
@@ -807,7 +807,7 @@ body.is-locked {
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   border: 2px solid #b8923b;
-  background: #07261d;
+  background: #1c2b22;
 }
 
 .scratch-reveal-content {
@@ -818,7 +818,7 @@ body.is-locked {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: radial-gradient(circle, #0e3b2e 0%, #06231a 100%);
+  background: radial-gradient(circle, #2a3e32 0%, #1c2b22 100%);
   color: #fff9ed;
   text-align: center;
   z-index: 1;
@@ -890,7 +890,7 @@ body.is-locked {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: #07261d;
+  color: #1c2b22;
   background: rgba(255, 255, 255, 0.4);
   padding: 6px 16px;
   border-radius: 20px;
@@ -1081,7 +1081,7 @@ body.is-locked {
 
 .btn-primary-gold {
   background: var(--grad-gold-foil);
-  color: #07261d;
+  color: #1c2b22;
   border: 1px solid transparent;
   box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
 }
@@ -1210,7 +1210,7 @@ body.is-locked {
    =================================================================== */
 @media (min-width: 600px) {
   body {
-    background: radial-gradient(ellipse at 50% 50%, #08291f 0%, #03110c 100%);
+    background: radial-gradient(ellipse at 50% 50%, #22352a 0%, #0d1611 100%);
   }
 
   .invitation-main {

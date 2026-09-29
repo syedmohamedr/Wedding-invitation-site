@@ -454,7 +454,7 @@
 
     // Cover Text
     ctx.textAlign = 'center';
-    ctx.fillStyle = '#06231a';
+    ctx.fillStyle = '#1c2b22';
 
     ctx.font = 'bold 11px Montserrat, sans-serif';
     ctx.fillText('✨ SPECIAL REVEAL ✨', w / 2, h / 2 - 28);
