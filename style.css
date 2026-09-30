@@ -1114,6 +1114,7 @@ body.is-locked {
   box-shadow: 0 4px 14px rgba(60, 45, 50, 0.1);
   position: relative;
   z-index: 2;
+  mix-blend-mode: multiply;
   filter: contrast(1.02) saturate(0.95);
   animation: characterBreathingLife 6s ease-in-out infinite alternate;
   transform-origin: center bottom;
