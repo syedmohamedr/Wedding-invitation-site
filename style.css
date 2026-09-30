@@ -1046,7 +1046,7 @@ body.is-locked {
   transform: scale(-1);
 }
 
-/* 1. Header Lead */
+/* 1. Header Lead / Spiritual Calligraphy */
 .etched-top-pre {
   font-family: var(--font-sans);
   font-size: 10px;
@@ -1058,6 +1058,31 @@ body.is-locked {
   display: block;
   position: relative;
   z-index: 2;
+}
+
+.etched-top-verse-wrap {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto 14px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.etched-top-verse-img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(60, 45, 50, 0.08));
+  transition: transform 0.3s ease;
+}
+
+.etched-top-verse-wrap:hover .etched-top-verse-img {
+  transform: scale(1.02);
 }
 
 /* 2. Gazebo Architectural Etching in Vintage Frame */
@@ -1422,7 +1447,8 @@ body.is-locked {
 }
 
 /* Sequential Cinematic Opening Animations for the Card */
-.video-animating .etched-top-pre {
+.video-animating .etched-top-pre,
+.video-animating .etched-top-verse-wrap {
   animation: seqSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
@@ -2136,5 +2162,9 @@ body.is-locked {
   }
   .devbies-editorial-card {
     padding: 32px 16px 28px;
+  }
+  .etched-top-verse-wrap {
+    max-width: 220px;
+    margin-bottom: 12px;
   }
 }
