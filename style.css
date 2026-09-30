@@ -2053,21 +2053,27 @@ body.is-locked {
   margin-bottom: 12px;
 }
 
-.footer-thank-you {
-  font-family: var(--font-serif-body);
-  font-size: 14.5px;
-  font-style: italic;
-  color: var(--text-muted);
-  margin-bottom: 8px;
+.footer-dua-wrap {
+  width: 100%;
+  max-width: 270px;
+  margin: 10px auto 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer-venue-tagline {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--rose-primary);
-  margin-bottom: 24px;
+.footer-dua-img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 3px rgba(60, 45, 50, 0.08));
+  transition: transform 0.3s ease;
+}
+
+.footer-dua-wrap:hover .footer-dua-img {
+  transform: scale(1.02);
 }
 
 .btn-scroll-top {

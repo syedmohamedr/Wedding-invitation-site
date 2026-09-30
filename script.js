@@ -101,8 +101,6 @@
     // Footer
     safeSetText('footerCoupleName', `${groom.name.toUpperCase()} & ${bride.name.toUpperCase()}`);
     safeSetText('footerDateNumeric', dateNumeric);
-    safeSetText('textClosingGratitude', texts.closingGratitude);
-    safeSetText('footerVenueTag', `${venue.name.toUpperCase()} • ${venue.city.toUpperCase()}`);
   }
 
   function animateCharactersInElement(el, rawText, baseDelay = 0, speed = 0.045) {
