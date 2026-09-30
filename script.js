@@ -872,6 +872,16 @@
     initScrollObservers();
     initVideoAnimationControls();
 
+    // Cover art card click listener
+    const coverArtCard = document.getElementById('coverArtCard');
+    if (coverArtCard) {
+      coverArtCard.addEventListener('click', (e) => {
+        // Prevent double firing if wax seal child was clicked
+        if (e.target.closest('#waxSealBtn')) return;
+        openRoyalEnvelope();
+      });
+    }
+
     // Wax Seal click listener
     if (waxSealBtn) {
       waxSealBtn.addEventListener('click', openRoyalEnvelope);
