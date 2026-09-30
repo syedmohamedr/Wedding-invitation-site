@@ -42,23 +42,21 @@
     const { groom, bride, eventTitle, dateFormatted, dateNumeric, dayOfWeek, timeFormatted, timeNote, venue, texts, contact } = WEDDING_CONFIG;
 
     // Cover Screen & 3D Envelope
-    safeSetText('coverBismillah', texts.bismillahEnglish);
     safeSetText('peekEventTitle', eventTitle || 'WEDDING INVITATION');
 
-    // Pinterest Main Card
-    safeSetText('textBlessingHeader', texts.blessingHeader);
-    safeSetText('mainEventTitle', eventTitle || 'WEDDING INVITATION');
-    safeSetText('mainGroomName', groom.shortName || groom.name);
-    safeSetText('mainBrideName', bride.shortName || bride.name);
-    safeSetText('textHolyVerse', texts.holyVerse);
-    safeSetText('textHolyVerseSource', texts.holyVerseSource);
-
-    // Auspicious Details
-    safeSetText('detailDateFormatted', `${dayOfWeek}, ${dateFormatted}`);
-    safeSetText('detailDayOfWeek', dayOfWeek);
-    safeSetText('detailTimeFormatted', timeFormatted);
-    safeSetText('detailTimeNote', timeNote || '(Sharp)');
-    safeSetText('detailVenueName', venue.name);
+    // Devbies-Style Main Card with Character-by-Character Animations
+    animateCharactersInElement(document.getElementById('editorialMonogram'), `${groom.name.charAt(0)} & ${bride.name.charAt(0)}`, 0.2, 0.08);
+    safeSetText('editorialQuote', texts.romanticQuote || "Two hearts, one journey, and a lifetime of cherished memories");
+    safeSetText('editorialInviteLead', texts.requestHonourCaps || "REQUEST THE HONOR OF YOUR PRESENCE");
+    safeSetText('groomParents', groom.parents || "S/o Mr. Ali & Mrs. Naseema.H");
+    safeSetText('brideParents', bride.parents || "D/o Mr. Jaffarali.A & Mrs. Nadeera");
+    animateCharactersInElement(document.getElementById('mainGroomName'), groom.name.toUpperCase(), 0.5, 0.05);
+    animateCharactersInElement(document.getElementById('mainBrideName'), bride.name.toUpperCase(), 0.8, 0.05);
+    safeSetText('triptychMonth', "DECEMBER");
+    safeSetText('triptychDayYear', `${dayOfWeek}, 2026`);
+    safeSetText('triptychDayNum', "20");
+    safeSetText('detailTimeFormatted', "11.00 - 3.00");
+    safeSetText('detailVenueName', venue.name.toUpperCase());
     safeSetText('detailVenueCity', `${venue.city}, ${venue.district || ''}`);
 
     // Dua Seal & Messages
@@ -105,6 +103,23 @@
     safeSetText('footerDateNumeric', dateNumeric);
     safeSetText('textClosingGratitude', texts.closingGratitude);
     safeSetText('footerVenueTag', `${venue.name.toUpperCase()} • ${venue.city.toUpperCase()}`);
+  }
+
+  function animateCharactersInElement(el, rawText, baseDelay = 0, speed = 0.045) {
+    if (!el) return;
+    const textToUse = rawText !== undefined ? rawText : (el.getAttribute('data-raw-text') || el.textContent);
+    if (!textToUse) return;
+    el.setAttribute('data-raw-text', textToUse);
+    el.innerHTML = '';
+    const chars = Array.from(textToUse);
+    chars.forEach((ch, idx) => {
+      const span = document.createElement('span');
+      span.className = 'char-anim';
+      span.style.setProperty('--char-idx', idx);
+      span.style.setProperty('--anim-delay', `${(baseDelay + idx * speed).toFixed(3)}s`);
+      span.textContent = ch === ' ' ? '\u00A0' : ch;
+      el.appendChild(span);
+    });
   }
 
   function safeSetText(id, text) {
@@ -599,9 +614,9 @@
 
   function spawnGentlePetal() {
     const colors = [
-      '110, 21, 38',   // Deep wine rose
-      '226, 172, 178', // Soft blush pink
-      '255, 245, 235', // Jasmine ivory
+      '184, 107, 119', // Dusty rose
+      '220, 160, 170', // Soft blush pink
+      '248, 238, 240', // Rose ivory
       '212, 175, 55'   // Gold flake
     ];
 
@@ -819,6 +834,11 @@
     // Force browser reflow to re-trigger CSS animations cleanly from t=0
     void card.offsetWidth;
 
+    // Trigger character-by-character letter cascade synced with cinematic timeline
+    animateCharactersInElement(document.getElementById('editorialMonogram'), undefined, 0.6, 0.08);
+    animateCharactersInElement(document.getElementById('mainGroomName'), undefined, 2.0, 0.05);
+    animateCharactersInElement(document.getElementById('mainBrideName'), undefined, 2.3, 0.05);
+
     // Re-apply animation class
     card.classList.add('video-animating');
     if (progressFill) {
@@ -867,6 +887,15 @@
     // Audio toggle
     if (audioToggleBtn) {
       audioToggleBtn.addEventListener('click', toggleMusic);
+    }
+
+    // Reminder button (trigger calendar save)
+    const btnReminder = document.getElementById('btnReminder');
+    if (btnReminder) {
+      btnReminder.addEventListener('click', () => {
+        const btnCal = document.getElementById('btnAddToCalendar');
+        if (btnCal) btnCal.click();
+      });
     }
 
     // Fast-forward listener if cover hero is clicked after opening starts

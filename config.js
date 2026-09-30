@@ -9,12 +9,14 @@ const WEDDING_CONFIG = {
   groom: {
     name: "Assan A",
     shortName: "Assan",
-    title: "Groom"
+    title: "Groom",
+    parents: "S/o Mr. Ali & Mrs. Naseema.H"
   },
   bride: {
     name: "Sumayya J",
     shortName: "Sumayya",
-    title: "Bride"
+    title: "Bride",
+    parents: "D/o Mr. Jaffarali.A & Mrs. Nadeera"
   },
 
   // Event Headline
@@ -42,6 +44,8 @@ const WEDDING_CONFIG = {
   texts: {
     bismillahArabic: "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
     bismillahEnglish: "BISMILLAHI RAHMANI RAHIM",
+    romanticQuote: "Two hearts, one journey, and a lifetime of cherished memories",
+    requestHonourCaps: "REQUEST THE HONOR OF YOUR PRESENCE",
     blessingHeader: "With the blessings of Allah & our beloved families, we are delighted to invite you to join us as we celebrate the joyous",
     togetherFamilies: "TOGETHER WITH OUR FAMILIES",
     requestHonour: "request the honour of your presence at their wedding celebration",
