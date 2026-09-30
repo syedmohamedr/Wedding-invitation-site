@@ -49,7 +49,7 @@
     safeSetText('editorialQuote', texts.romanticQuote || "Two hearts, one journey, and a lifetime of cherished memories");
     safeSetText('editorialInviteLead', texts.requestHonourCaps || "REQUEST THE HONOR OF YOUR PRESENCE");
     safeSetText('groomParents', groom.parents || "S/o Mr. Ali & Mrs. Naseema.H");
-    safeSetText('brideParents', bride.parents || "D/o Mr. Jaffarali.A & Mrs. Nadeera");
+    safeSetText('brideParents', bride.parents || "Mr. Jaffarali.K A & Mrs. Nadeera.S");
     animateCharactersInElement(document.getElementById('mainGroomName'), groom.name.toUpperCase(), 0.5, 0.05);
     animateCharactersInElement(document.getElementById('mainBrideName'), bride.name.toUpperCase(), 0.8, 0.05);
     safeSetText('triptychMonth', "DECEMBER");
@@ -346,7 +346,7 @@
 
     if (envelopeContainer) {
       envelopeContainer.classList.add('is-unsealing');
-      
+
       // 2. Open Flap smoothly in 3D (130ms)
       setTimeout(() => {
         if (envelopeContainer) {

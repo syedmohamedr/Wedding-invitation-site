@@ -16,7 +16,7 @@ const WEDDING_CONFIG = {
     name: "Sumayya J",
     shortName: "Sumayya",
     title: "Bride",
-    parents: "D/o Mr. Jaffarali.A & Mrs. Nadeera"
+    parents: "D/o Mr. Jaffarali.K A & Mrs. Nadeera.S"
   },
 
   // Event Headline
