@@ -20,7 +20,7 @@ A luxury, mobile-first digital wedding invitation website crafted with an opulen
   - Direct Google Maps button linking to **Pankaja Auditorium, Mudappaloor** (`https://maps.app.goo.gl/8tPDfiJvE3bpFy9u6?g_st=aw`).
 - **Action Buttons**:
   - `ADD TO CALENDAR 📅`: Generates `.ics` file (Apple Calendar, Outlook, iOS) and direct Google Calendar link.
-  - `RSVP VIA WHATSAPP 💬`: Pre-filled WhatsApp message for effortless guest confirmations.
+  - `WILL YOU ATTEND? 💬`: Pre-filled WhatsApp message for effortless guest confirmations.
   - `SHARE INVITATION 💌`: Native mobile Web Share API sheet or WhatsApp share link.
 - **Built-in Wedding Melodic Synth**: Includes a procedural romantic acoustic harp & piano soundscape that plays instantly without external dependencies, with support for custom `.mp3` files!
 - **Discreet Live Edit Panel**: Built-in interactive gear panel allowing live edits on screen.
