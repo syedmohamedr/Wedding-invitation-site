@@ -875,14 +875,28 @@
     // Cover art card click listener
     const coverArtCard = document.getElementById('coverArtCard');
     if (coverArtCard) {
-      coverArtCard.addEventListener('click', (e) => {
-        // Prevent double firing if wax seal child was clicked
-        if (e.target.closest('#waxSealBtn')) return;
+      coverArtCard.addEventListener('click', () => {
         openRoyalEnvelope();
       });
     }
 
-    // Wax Seal click listener
+    // Tap to open cue listener
+    const sketchCardTapCue = document.getElementById('sketchCardTapCue');
+    if (sketchCardTapCue) {
+      sketchCardTapCue.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openRoyalEnvelope();
+      });
+      sketchCardTapCue.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          openRoyalEnvelope();
+        }
+      });
+    }
+
+    // Wax Seal click listener (if present)
     if (waxSealBtn) {
       waxSealBtn.addEventListener('click', openRoyalEnvelope);
     }

@@ -341,30 +341,26 @@ body.is-locked .floating-header-controls {
   pointer-events: none;
 }
 
-.spiritual-crest-mini {
-  width: 58px;
-  height: 22px;
-  margin: 0 auto 4px;
-  opacity: 0.88;
+.bismillah-calligraphy-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 5px;
+  padding: 0 10px;
 }
 
-.spiritual-crest-svg {
+.bismillah-calligraphy-img {
   width: 100%;
-  height: 100%;
+  max-width: 260px;
+  height: auto;
   display: block;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 1px 4px rgba(160, 115, 30, 0.28));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.bismillah-arabic-header {
-  font-family: var(--font-arabic, 'Amiri', 'Traditional Arabic', serif);
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 0 0 4px;
-  background: linear-gradient(135deg, #9C7225 0%, #D4AF37 25%, #FFF0C2 50%, #C99A3C 75%, #8B611B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 6px rgba(160, 115, 30, 0.32));
-  letter-spacing: 0.02em;
+.cover-spiritual-header:hover .bismillah-calligraphy-img {
+  transform: scale(1.025);
 }
 
 .bismillah-translation {
@@ -418,7 +414,7 @@ body.is-locked .floating-header-controls {
   width: 100%;
   max-width: 350px;
   perspective: 1200px;
-  margin-bottom: 26px;
+  margin-bottom: 6px;
   filter: drop-shadow(0 20px 42px rgba(60, 35, 45, 0.16)) drop-shadow(0 4px 12px rgba(60, 35, 45, 0.08));
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -432,7 +428,7 @@ body.is-locked .floating-header-controls {
     linear-gradient(180deg, #FDFBF8 0%, #FAF5EE 50%, #F5ECE0 100%);
   background-size: 20px 20px, 100% 100%;
   border-radius: 18px;
-  padding: 14px 14px 28px;
+  padding: 14px 14px 16px;
   border: 1.5px solid rgba(212, 175, 55, 0.42);
   box-shadow: 
     inset 0 0 28px rgba(184, 107, 119, 0.07),
@@ -526,7 +522,7 @@ body.is-locked .floating-header-controls {
 .cover-card-ribbon-band {
   position: relative;
   margin-top: 10px;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   padding: 8px 12px;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(4px);
@@ -570,32 +566,69 @@ body.is-locked .floating-header-controls {
   color: #7D6459;
 }
 
-/* Wax Seal Centered Gracefully on Card Bottom */
-.wax-seal-button.sketch-card-seal {
-  top: auto;
-  bottom: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: sealBreathingPulseSketch 3s ease-in-out infinite alternate;
+/* Elegant Interactive Tap Cue at Card Bottom */
+.sketch-card-tap-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 7px 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(254, 250, 244, 0.96) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 24px;
+  box-shadow: 
+    0 2px 8px rgba(184, 107, 119, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  animation: tapCueBreathingPulse 2.8s ease-in-out infinite;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-@keyframes sealBreathingPulseSketch {
-  0% {
-    transform: translateX(-50%) scale(1);
-    filter: drop-shadow(0 4px 10px rgba(70, 20, 32, 0.25));
+.cover-sketch-art-card:hover .sketch-card-tap-cue,
+.sketch-card-tap-cue:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 
+    0 6px 18px rgba(184, 107, 119, 0.16),
+    0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+.tap-cue-text {
+  font-family: var(--font-serif-body, 'Cormorant Garamond', Georgia, serif);
+  font-size: 14.5px;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.07em;
+  color: #7D2E3E;
+  line-height: 1;
+}
+
+.tap-cue-sparkle {
+  font-size: 11px;
+  color: #C59B27;
+  opacity: 0.85;
+  transition: transform 0.25s ease;
+}
+
+.cover-sketch-art-card:hover .tap-cue-sparkle,
+.sketch-card-tap-cue:hover .tap-cue-sparkle {
+  transform: scale(1.2);
+  color: #D4AF37;
+}
+
+@keyframes tapCueBreathingPulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(184, 107, 119, 0.08);
   }
   50% {
-    transform: translateX(-50%) scale(1.05);
-    filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.45));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(184, 107, 119, 0.15), 0 0 8px rgba(212, 175, 55, 0.22);
   }
-  100% {
-    transform: translateX(-50%) scale(1);
-    filter: drop-shadow(0 4px 10px rgba(70, 20, 32, 0.25));
-  }
-}
-
-.wax-seal-button.sketch-card-seal:hover {
-  transform: translateX(-50%) scale(1.1);
 }
 
 .cover-sketch-card-container.is-unsealing .cover-sketch-art-card {
@@ -605,10 +638,10 @@ body.is-locked .floating-header-controls {
     0 0 35px rgba(212, 175, 55, 0.4);
 }
 
-.cover-sketch-card-container.is-unsealing .wax-seal-button.sketch-card-seal {
-  transform: translateX(-50%) scale(1.15);
+.cover-sketch-card-container.is-unsealing .sketch-card-tap-cue {
   opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
 }
 
@@ -2344,7 +2377,7 @@ body.is-locked .floating-header-controls {
   }
   .cover-sketch-card-container {
     max-width: 310px;
-    margin-bottom: 20px;
+    margin-bottom: 6px;
   }
   .meadow-sketch-img {
     max-height: 290px;
@@ -2355,8 +2388,8 @@ body.is-locked .floating-header-controls {
   .envelope-container {
     height: 215px;
   }
-  .bismillah-arabic-header {
-    font-size: 30px;
+  .bismillah-calligraphy-img {
+    max-width: 220px;
   }
   .bismillah-translation {
     font-size: 11.5px;
