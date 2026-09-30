@@ -43,6 +43,8 @@
 
     // Cover Screen & 3D Envelope
     safeSetText('peekEventTitle', eventTitle || 'WEDDING INVITATION');
+    safeSetText('coverGroomName', (groom.name || 'ASSAN A').toUpperCase());
+    safeSetText('coverBrideName', (bride.name || 'SUMAYYA J').toUpperCase());
 
     // Devbies-Style Main Card with Character-by-Character Animations
     animateCharactersInElement(document.getElementById('editorialMonogram'), `${groom.name.charAt(0)} & ${bride.name.charAt(0)}`, 0.2, 0.08);

@@ -534,12 +534,12 @@ body.is-locked .floating-header-controls {
   position: relative;
   margin-top: 10px;
   margin-bottom: 8px;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.94);
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 14px rgba(70, 30, 40, 0.08);
 }
@@ -551,30 +551,39 @@ body.is-locked .floating-header-controls {
   gap: 2px;
 }
 
-.card-ribbon-tag {
-  font-family: var(--font-sans, 'Montserrat', sans-serif);
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: #B85D6F;
-  text-transform: uppercase;
+.cover-couple-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
 }
 
-.card-ribbon-names {
-  font-family: var(--font-script, 'Playfair Display', serif);
-  font-size: 26px;
-  font-weight: 600;
-  color: #6E2635;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
+.cover-couple-name {
+  font-family: var(--font-serif-heading, 'Cinzel', Georgia, serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #1A1315;
+  line-height: 1.25;
+}
+
+.cover-heart-divider {
+  font-size: 20px;
+  color: var(--rose-primary, #B85D6F);
+  line-height: 1;
+  margin: 2px 0;
+  display: inline-block;
+  animation: romanticHeartbeat 2.2s ease-in-out infinite;
+  filter: drop-shadow(0 1px 4px rgba(184, 107, 119, 0.35));
 }
 
 .card-ribbon-date {
   font-family: var(--font-sans, 'Montserrat', sans-serif);
-  font-size: 9px;
+  font-size: 8.5px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   color: #7D6459;
+  margin-top: 5px;
 }
 
 /* Elegant Interactive Tap Cue at Card Bottom */
@@ -2393,8 +2402,11 @@ body.is-locked .floating-header-controls {
   .meadow-sketch-img {
     max-height: 290px;
   }
-  .card-ribbon-names {
-    font-size: 22px;
+  .cover-couple-name {
+    font-size: 19px;
+  }
+  .cover-heart-divider {
+    font-size: 17px;
   }
   .envelope-container {
     height: 215px;
