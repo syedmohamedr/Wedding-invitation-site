@@ -202,7 +202,7 @@ body.is-locked {
 }
 
 /* ===================================================================
-   SCREEN 1: 3D WAX-SEALED ENVELOPE (UNFOLDING EXPERIENCE)
+   SCREEN 1: 3D WAX-SEALED ENVELOPE (PINTEREST RICH AESTHETIC)
    =================================================================== */
 .cover-hero {
   position: fixed;
@@ -212,7 +212,7 @@ body.is-locked {
   align-items: center;
   justify-content: center;
   padding: 20px 16px;
-  background: var(--bg-ambient-vignette);
+  background: radial-gradient(ellipse at 50% 48%, #FDFBF8 0%, #F9F5EC 45%, #EFE4D6 100%);
   transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.9s ease;
   overflow: hidden;
 }
@@ -223,6 +223,54 @@ body.is-locked {
   pointer-events: none;
   visibility: hidden;
   transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s;
+}
+
+/* Warm Ambient Spotlight & Candlelight Atmosphere behind Envelope */
+.cover-ambient-glow {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(238, 218, 192, 0.55) 0%, rgba(245, 230, 210, 0.25) 45%, transparent 75%);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 1;
+  animation: ambientGlowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlowPulse {
+  0% { opacity: 0.75; transform: translate(-50%, -50%) scale(0.95); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+}
+
+/* Editorial Botanical Corner Etchings */
+.cover-corner-flourish {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  pointer-events: none;
+  opacity: 0.22;
+  z-index: 2;
+}
+
+.cover-corner-flourish.top-left {
+  top: 14px;
+  left: 14px;
+}
+
+.cover-corner-flourish.top-right {
+  top: 14px;
+  right: 14px;
+  transform: scaleX(-1);
+}
+
+.cover-corner-flourish img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Background floating lanterns in Cover */
@@ -236,7 +284,7 @@ body.is-locked {
   padding: 0 25px;
   pointer-events: none;
   opacity: 0.28;
-  z-index: 1;
+  z-index: 2;
 }
 
 .cover-bg-lanterns .bg-lantern {
@@ -263,10 +311,10 @@ body.is-locked {
   object-fit: contain;
 }
 
-/* Spiritual Header (Positioned Cleanly at Top Above Envelope) */
+/* Spiritual Header (Pinterest 24K Gold Foil Arabic Calligraphy & Subtitle) */
 .cover-spiritual-header {
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   position: relative;
   z-index: 10;
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -284,17 +332,64 @@ body.is-locked {
   pointer-events: none;
 }
 
+.spiritual-crest-mini {
+  width: 58px;
+  height: 22px;
+  margin: 0 auto 4px;
+  opacity: 0.88;
+}
+
+.spiritual-crest-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .bismillah-arabic-header {
-  font-family: var(--font-arabic);
-  font-size: 36px;
-  color: var(--text-primary);
-  text-shadow: 0 1px 3px rgba(60, 45, 50, 0.1);
-  line-height: 1.35;
-  margin-bottom: 14px;
+  font-family: var(--font-arabic, 'Amiri', 'Traditional Arabic', serif);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 4px;
+  background: linear-gradient(135deg, #9C7225 0%, #D4AF37 25%, #FFF0C2 50%, #C99A3C 75%, #8B611B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(160, 115, 30, 0.32));
   letter-spacing: 0.02em;
 }
 
-/* 3D Envelope Scene */
+.bismillah-translation {
+  font-family: var(--font-serif-body, 'Cormorant Garamond', Georgia, serif);
+  font-size: 13.5px;
+  font-style: italic;
+  font-weight: 500;
+  color: #7D6459;
+  letter-spacing: 0.05em;
+  margin: 0 0 8px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.spiritual-motif-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.motif-line-dash {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.6), transparent);
+}
+
+.motif-diamond-star {
+  font-size: 10px;
+  color: #D4AF37;
+  opacity: 0.9;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+}
+
+/* 3D Envelope Presentation Scene */
 .envelope-scene-wrapper {
   position: relative;
   z-index: 10;
@@ -312,7 +407,7 @@ body.is-locked {
   height: 235px;
   background: transparent;
   transform-style: preserve-3d;
-  filter: drop-shadow(0 16px 38px rgba(60, 45, 50, 0.14));
+  filter: drop-shadow(0 20px 42px rgba(60, 35, 45, 0.16)) drop-shadow(0 4px 10px rgba(60, 35, 45, 0.08));
   margin-bottom: 24px;
 }
 
@@ -320,11 +415,11 @@ body.is-locked {
 .envelope-back {
   position: absolute;
   inset: 0;
-  background: #FDFCF9;
-  border-radius: 12px;
-  border: 1.5px solid rgba(184, 107, 119, 0.35);
+  background: #FAF7F2;
+  border-radius: 14px;
+  border: 1.5px solid rgba(212, 175, 55, 0.32);
   overflow: hidden;
-  box-shadow: inset 0 0 25px rgba(184, 107, 119, 0.08);
+  box-shadow: inset 0 0 30px rgba(184, 107, 119, 0.07);
 }
 
 .envelope-lining-pattern {
@@ -345,7 +440,7 @@ body.is-locked {
   left: 16px;
   right: 16px;
   height: 220px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid var(--card-border);
   box-shadow: 0 4px 16px rgba(60, 45, 50, 0.08);
   z-index: 5;
@@ -367,7 +462,7 @@ body.is-locked {
   position: absolute;
   inset: 5px;
   border: 1px solid rgba(184, 107, 119, 0.4);
-  border-radius: 4px;
+  border-radius: 6px;
   pointer-events: none;
 }
 
@@ -384,9 +479,9 @@ body.is-locked {
   gap: 3px;
   pointer-events: none;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid var(--card-border);
@@ -421,7 +516,7 @@ body.is-locked {
   box-shadow: 0 20px 45px rgba(60, 45, 50, 0.18), 0 0 25px rgba(184, 107, 119, 0.25);
 }
 
-/* Envelope Front Pockets with Layered Vector Folds & Drop Shadows */
+/* Envelope Front Pockets with Layered Vector Folds & Gilded Trim */
 .envelope-pocket {
   position: absolute;
   inset: 0;
@@ -438,17 +533,101 @@ body.is-locked {
   filter: drop-shadow(0 4px 10px rgba(60, 45, 50, 0.08));
 }
 
+/* Pinterest Translucent Chiffon Ribbon Band across Envelope */
+.envelope-ribbon-band {
+  position: absolute;
+  top: 52%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  height: 38px;
+  z-index: 15;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 
+    0 4px 16px rgba(70, 25, 38, 0.22),
+    0 1px 4px rgba(70, 25, 38, 0.14);
+}
+
+.ribbon-fabric {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(218, 154, 166, 0.88) 0%, rgba(184, 107, 119, 0.95) 48%, rgba(148, 70, 84, 0.92) 100%);
+  background-image: repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255, 255, 255, 0.12) 3px, rgba(255, 255, 255, 0.12) 5px);
+}
+
+.ribbon-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.3) 45%, rgba(255, 255, 255, 0.06) 100%);
+  border-top: 1px dashed rgba(255, 235, 240, 0.35);
+  border-bottom: 1px dashed rgba(255, 235, 240, 0.35);
+}
+
+/* Cascading Ribbon Tails Draped Below Wax Seal */
+.ribbon-tails-container {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 80px;
+  height: 52px;
+  pointer-events: none;
+  z-index: 16;
+}
+
+.ribbon-tail {
+  position: absolute;
+  top: 0;
+  width: 22px;
+  height: 48px;
+  background: linear-gradient(180deg, #B86B77 0%, #9E4F5D 80%, #7D3845 100%);
+  box-shadow: 0 4px 12px rgba(60, 20, 32, 0.25);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 88%, 50% 100%, 0% 88%);
+}
+
+.ribbon-tail.tail-left {
+  left: 14px;
+  transform-origin: top center;
+  transform: rotate(-14deg);
+}
+
+.ribbon-tail.tail-right {
+  right: 14px;
+  transform-origin: top center;
+  transform: rotate(12deg);
+}
+
+/* Pinterest Pressed Botanical Olive Sprig Tucked Under Wax Seal */
+.envelope-botanical-sprig {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 195px;
+  height: 78px;
+  pointer-events: none;
+  z-index: 18;
+}
+
+.botanical-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /* 3D Folding Top Flap (Flips open 180deg) */
 .envelope-top-flap {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 55%;
+  height: 56%;
   transform-origin: top center;
   transform-style: preserve-3d;
-  z-index: 20;
-  transition: transform 0.48s cubic-bezier(0.33, 1, 0.68, 1);
+  z-index: 22;
+  transition: transform 0.52s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .flap-triangle {
@@ -464,7 +643,6 @@ body.is-locked {
   display: block;
   pointer-events: none;
   overflow: visible;
-  filter: drop-shadow(0 6px 14px rgba(60, 45, 50, 0.16));
 }
 
 .envelope-container.is-flap-open .envelope-top-flap {
@@ -472,88 +650,147 @@ body.is-locked {
   z-index: 4;
 }
 
-/* Tactile 3D Wax Seal Button with Center-Aligned Monogram */
+/* Tactile Hand-Poured 3D Wax Seal with Organic Melted Edge */
 .wax-seal-button {
   position: absolute;
   top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 72px;
-  height: 72px;
+  width: 86px;
+  height: 86px;
   cursor: pointer;
   z-index: 30;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
-  animation: sealPulse 2.8s ease-in-out infinite alternate;
+  animation: sealBreathingPulse 3s ease-in-out infinite alternate;
 }
 
 .wax-seal-button:hover {
-  transform: translate(-50%, -50%) scale(1.08);
+  transform: translate(-50%, -50%) scale(1.07);
 }
 
-@keyframes sealPulse {
-  0% { box-shadow: 0 0 0 0 rgba(184, 107, 119, 0.45); }
-  100% { box-shadow: 0 0 0 14px rgba(184, 107, 119, 0); }
+@keyframes sealBreathingPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0));
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.03);
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.45));
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 0 rgba(212, 175, 55, 0));
+  }
 }
 
 .wax-seal-body {
+  position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 52% 48% 51% 49% / 49% 51% 48% 52%;
-  background: radial-gradient(circle at 34% 30%, #E28896 0%, #B86B77 45%, #8B3E4C 82%, #682632 100%);
-  border: 2px solid #E8B6BF;
-  box-shadow: 
-    0 8px 24px rgba(184, 107, 119, 0.45),
-    0 2px 6px rgba(0, 0, 0, 0.15),
-    inset 0 2px 5px rgba(255, 255, 255, 0.5),
-    inset 0 -3px 6px rgba(60, 20, 30, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  position: relative;
 }
 
-.wax-stamp-rim {
+.wax-puddle-svg {
   position: absolute;
-  inset: 5px;
-  border: 1.5px dashed rgba(255, 248, 235, 0.7);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.wax-stamp-matrix {
+  position: relative;
+  z-index: 2;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #BA6475 0%, #994757 50%, #6E2635 100%);
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.5),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.35),
+    0 1px 2px rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrix-laurel-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
 }
 
 .wax-monogram {
   font-family: 'Cinzel', 'Marcellus', Georgia, serif;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: #FFFDF8;
   text-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.65),
-    0 -1px 1px rgba(255, 255, 255, 0.35),
-    0 0 10px rgba(255, 240, 210, 0.5);
+    0 1px 2px rgba(0, 0, 0, 0.75),
+    0 -1px 1px rgba(255, 255, 255, 0.45),
+    0 0 8px rgba(255, 240, 210, 0.6);
   white-space: nowrap;
   line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
   position: relative;
-  z-index: 2;
-  transform: translateY(-1px);
+  z-index: 3;
+  transform: translateY(-0.5px);
+}
+
+.wax-specular-sheen {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  width: 22px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.45) 0%, transparent 80%);
+  transform: rotate(-35deg);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.seal-interactive-sparkle {
+  position: absolute;
+  top: -4px;
+  right: -2px;
+  font-size: 14px;
+  color: #FCEFD2;
+  text-shadow: 0 0 8px rgba(255, 220, 130, 0.9);
+  pointer-events: none;
+  z-index: 5;
+  animation: sparkleTwinkle 2.5s ease-in-out infinite;
+}
+
+@keyframes sparkleTwinkle {
+  0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.6; }
+  50% { transform: scale(1.2) rotate(45deg); opacity: 1; }
+}
+
+.wax-seal-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.28) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .envelope-container.is-unsealing .wax-seal-button {
-  transform: translate(-50%, -50%) scale(1.04);
+  transform: translate(-50%, -50%) scale(1.08);
   opacity: 0;
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transition: opacity 0.45s ease, transform 0.45s ease;
   pointer-events: none;
 }
 
 /* Action Suite below envelope */
 .cover-action-suite {
   text-align: center;
-  margin-top: 4px;
+  margin-top: 6px;
   position: relative;
   z-index: 10;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -563,18 +800,21 @@ body.is-locked {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: var(--rose-btn-grad);
-  border: 1.5px solid #E8B6BF;
+  gap: 12px;
+  background: linear-gradient(135deg, #9E4757 0%, #B86B77 50%, #853343 100%);
+  border: 1.5px solid #F0D495;
   border-radius: 40px;
-  padding: 14px 34px;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  padding: 13px 34px;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   color: #FFFFFF;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(184, 107, 119, 0.35);
+  box-shadow: 
+    0 8px 24px rgba(184, 107, 119, 0.38),
+    0 2px 8px rgba(212, 175, 55, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
   position: relative;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -582,7 +822,15 @@ body.is-locked {
 
 .btn-royal-unseal:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(184, 107, 119, 0.45);
+  box-shadow: 
+    0 12px 30px rgba(184, 107, 119, 0.48),
+    0 4px 14px rgba(212, 175, 55, 0.35);
+}
+
+.unseal-sparkle-icon {
+  font-size: 11px;
+  color: #FCEFD2;
+  opacity: 0.9;
 }
 
 .unseal-foil-shine {
@@ -603,13 +851,23 @@ body.is-locked {
 }
 
 .cover-hint {
-  font-family: var(--font-serif-body);
-  font-size: 13.5px;
+  font-family: var(--font-serif-body, 'Cormorant Garamond', Georgia, serif);
+  font-size: 14.5px;
   font-style: italic;
-  letter-spacing: 0.04em;
-  color: var(--text-muted);
-  margin-top: 14px;
+  letter-spacing: 0.05em;
+  color: #7D6459;
+  margin-top: 12px;
   opacity: 0.95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hint-star {
+  font-size: 10px;
+  color: #D4AF37;
+  opacity: 0.75;
 }
 
 /* ===================================================================
@@ -1834,6 +2092,38 @@ body.is-locked {
 }
 
 @media (max-width: 380px) {
+  .envelope-scene-wrapper {
+    max-width: 330px;
+  }
+  .envelope-container {
+    height: 215px;
+  }
+  .bismillah-arabic-header {
+    font-size: 32px;
+  }
+  .bismillah-translation {
+    font-size: 12px;
+  }
+  .wax-seal-button {
+    width: 76px;
+    height: 76px;
+  }
+  .wax-stamp-matrix {
+    width: 50px;
+    height: 50px;
+  }
+  .wax-monogram {
+    font-size: 15px;
+  }
+  .envelope-botanical-sprig {
+    width: 170px;
+    height: 68px;
+  }
+  .btn-royal-unseal {
+    padding: 12px 28px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
   .editorial-name {
     font-size: 24px;
   }
